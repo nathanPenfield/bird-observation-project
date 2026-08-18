@@ -1,14 +1,13 @@
-package com.birder.bird_observation_project.models;
+package com.birder.bird_observation_project.dtos;
 
-public class Observation {
-    
+public class ObservationDto {
     private long id;
     private int species_id;
     private String location;
     private int count;
     private String date;
    
-    public Observation(long id, int species_id, int count, String location, String date){
+    public ObservationDto(long id, int species_id, int count, String location, String date){
         this.id = id;
         this.species_id = species_id;
         this.count =count;
