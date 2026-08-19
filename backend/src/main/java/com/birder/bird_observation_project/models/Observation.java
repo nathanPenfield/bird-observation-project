@@ -1,11 +1,21 @@
 package com.birder.bird_observation_project.models;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="observations")
 public class Observation {
-    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     private int species_id;
-    private String location;
     private int count;
+    private String location;
     private String date;
    
     public Observation(long id, int species_id, int count, String location, String date){

@@ -8,4 +8,11 @@ public class Species {
         this.id = id;
         this.name = name;
     }
+
+    public int get_id(){
+        return this.id;
+    }
+    public String get_name(){
+        return this.name;
+    }
 }
