@@ -3,10 +3,9 @@ package com.birder.bird_observation_project.controllers;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.birder.bird_observation_project.dtos.ObservationDto;
-import com.birder.bird_observation_project.models.Observation;
 import com.birder.bird_observation_project.services.ObservationService;
 
-import java.net.http.HttpResponse;
+import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,10 +25,11 @@ public class ObservationController {
         this.observationService=observationService;
     }
     
-    // @GetMapping()
-    // public <List>Observation getObservations(){
-        
-    // }
+    @GetMapping()
+    public ResponseEntity<List<ObservationDto>> getObservations(){
+        List<ObservationDto> observations = observationService.getObservations();
+        return new ResponseEntity<>(observations, HttpStatus.OK);
+    }
 
     @PostMapping()
     public ResponseEntity<ObservationDto> createObservation(@RequestBody ObservationDto observationDto){

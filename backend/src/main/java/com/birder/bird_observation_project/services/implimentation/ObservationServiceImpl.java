@@ -1,5 +1,7 @@
 package com.birder.bird_observation_project.services.implimentation;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.birder.bird_observation_project.dtos.ObservationDto;
@@ -21,5 +23,13 @@ public class ObservationServiceImpl implements ObservationService{
         Observation observation = ObservationMapper.toEntity(observationDto);
         observation = observationRepository.save(observation);
         return ObservationMapper.toDto(observation);
+    }
+
+    @Override
+    public List<ObservationDto> getObservations(){
+        List<Observation> observations = observationRepository.findAll();
+        List<ObservationDto> observationDtos = ObservationMapper.listToDto(observations);
+        return observationDtos;
+
     }
 }

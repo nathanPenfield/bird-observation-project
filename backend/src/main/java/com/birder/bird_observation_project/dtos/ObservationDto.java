@@ -7,6 +7,10 @@ public class ObservationDto {
     private int count;
     private String date;
    
+    // noArgsConstructor
+    public ObservationDto(){}
+    
+    // allArgsConstructor
     public ObservationDto(Long id, int species_id, int count, String location, String date){
         this.id = id;
         this.species_id = species_id;
@@ -15,6 +19,7 @@ public class ObservationDto {
         this.date = date;
     }
 
+    // getter methods
     public Long getId(){
         return this.id;
     }
@@ -30,4 +35,22 @@ public class ObservationDto {
     public String getDate(){
         return this.date;
     }
+
+    // setter methods
+    public void setId(Long id){
+        this.id = id;
+    }
+    public void setSpeciesId(int species_id){
+        this.species_id = species_id;
+    }
+    public void setCount(int count){
+        this.count = count;
+    }
+    public void setLocation(String location){
+        this.location = location;
+    }
+    public void setDate(String date){
+        this.date = date;
+    }
+
 }
