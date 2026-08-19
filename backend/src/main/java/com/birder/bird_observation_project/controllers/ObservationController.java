@@ -22,6 +22,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class ObservationController {
     private ObservationService observationService;
     
+    public ObservationController(ObservationService observationService){
+        this.observationService=observationService;
+    }
+    
     // @GetMapping()
     // public <List>Observation getObservations(){
         
