@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,10 +38,11 @@ public class ObservationController {
         return new ResponseEntity<>(saved, HttpStatus.CREATED);
     }
 
-    // @GetMapping("/{id}")
-    // public Observation getObservation(){
-        
-    // }
+    @GetMapping("/{id}")
+    public ResponseEntity<ObservationDto> getObservation(@PathVariable Long id){
+        ObservationDto observation = observationService.getObservationById(id);
+        return new ResponseEntity<>(observation, HttpStatus.OK);
+    }
 
     // @PutMapping("/{id}")
     // public Observation updateObservation(){

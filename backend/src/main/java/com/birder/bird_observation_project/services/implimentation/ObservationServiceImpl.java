@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.birder.bird_observation_project.dtos.ObservationDto;
+import com.birder.bird_observation_project.exceptions.ObservationNotFoundException;
 import com.birder.bird_observation_project.mappers.ObservationMapper;
 import com.birder.bird_observation_project.models.Observation;
 import com.birder.bird_observation_project.repositories.ObservationRepository;
@@ -31,5 +32,11 @@ public class ObservationServiceImpl implements ObservationService{
         List<ObservationDto> observationDtos = ObservationMapper.listToDto(observations);
         return observationDtos;
 
+    }
+
+    @Override
+    public ObservationDto getObservationById(Long id){
+        Observation observation = observationRepository.findById(id).orElseThrow(() -> new ObservationNotFoundException(id));
+        return ObservationMapper.toDto(observation);
     }
 }
