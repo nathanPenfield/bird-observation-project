@@ -4,6 +4,6 @@ import com.birder.bird_observation_project.models.Observation;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
-public interface ObservationRepository extends JpaRepository<Observation,Long>{
+public interface ObservationRepository extends JpaRepository<Observation,Integer>{
     
 }

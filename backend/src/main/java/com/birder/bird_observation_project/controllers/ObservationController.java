@@ -39,7 +39,7 @@ public class ObservationController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ObservationDto> getObservation(@PathVariable Long id){
+    public ResponseEntity<ObservationDto> getObservation(@PathVariable int id){
         ObservationDto observation = observationService.getObservationById(id);
         return new ResponseEntity<>(observation, HttpStatus.OK);
     }

@@ -1,7 +1,7 @@
 package com.birder.bird_observation_project.dtos;
 
 public class ObservationDto {
-    private Long id;
+    private int id;
     private int species_id;
     private String location;
     private int count;
@@ -11,7 +11,7 @@ public class ObservationDto {
     public ObservationDto(){}
     
     // allArgsConstructor
-    public ObservationDto(Long id, int species_id, int count, String location, String date){
+    public ObservationDto(int id, int species_id, int count, String location, String date){
         this.id = id;
         this.species_id = species_id;
         this.count =count;
@@ -20,7 +20,7 @@ public class ObservationDto {
     }
 
     // getter methods
-    public Long getId(){
+    public int getId(){
         return this.id;
     }
     public int getSpeciesId(){
@@ -37,7 +37,7 @@ public class ObservationDto {
     }
 
     // setter methods
-    public void setId(Long id){
+    public void setId(int id){
         this.id = id;
     }
     public void setSpeciesId(int species_id){

@@ -35,8 +35,14 @@ public class ObservationServiceImpl implements ObservationService{
     }
 
     @Override
-    public ObservationDto getObservationById(Long id){
+    public ObservationDto getObservationById(int id){
         Observation observation = observationRepository.findById(id).orElseThrow(() -> new ObservationNotFoundException(id));
         return ObservationMapper.toDto(observation);
+    }
+
+    @Override
+    public void deleteObservation(int id){
+        Observation observation = observationRepository.findById(id).orElseThrow(() -> new ObservationNotFoundException(id));
+        observationRepository.delete(observation);
     }
 }
