@@ -11,7 +11,7 @@ import jakarta.persistence.Table;
 public class Observation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     private int species_id;
     private int count;
@@ -22,7 +22,7 @@ public class Observation {
     public Observation(){}
 
     // allArgsConstructor
-    public Observation(int id, int species_id, int count, String location, String date){
+    public Observation(Integer id, int species_id, int count, String location, String date){
         this.id = id;
         this.species_id = species_id;
         this.count =count;
@@ -31,7 +31,7 @@ public class Observation {
     }
 
     // getter methods
-    public int getId(){
+    public Integer getId(){
         return this.id;
     }
     public int getSpeciesId(){
@@ -48,7 +48,7 @@ public class Observation {
     }
 
     // setter methods
-    public void setId(int id){
+    public void setId(Integer id){
         this.id = id;
     }
     public void setSpeciesId(int species_id){

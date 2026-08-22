@@ -7,6 +7,6 @@ import com.birder.bird_observation_project.dtos.ObservationDto;
 public interface ObservationService {
     ObservationDto saveObservation(ObservationDto observationDto);
     List<ObservationDto> getObservations();
-    ObservationDto getObservationById(int id);
-    void deleteObservation(int id);
+    ObservationDto getObservationById(Integer id);
+    void deleteObservation(Integer id);
 }

@@ -39,7 +39,7 @@ public class ObservationController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ObservationDto> getObservation(@PathVariable int id){
+    public ResponseEntity<ObservationDto> getObservation(@PathVariable Integer id){
         ObservationDto observation = observationService.getObservationById(id);
         return new ResponseEntity<>(observation, HttpStatus.OK);
     }
@@ -49,9 +49,10 @@ public class ObservationController {
 
     // }
 
-    // @DeleteMapping("/{id}")
-    // public void deleteObservation(){
-        
-    // }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteObservation(@PathVariable Integer id){
+        observationService.deleteObservation(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 
 }
