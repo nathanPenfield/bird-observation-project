@@ -17,17 +17,21 @@ public class Observation {
     private int count;
     private String location;
     private String date;
+    private String time;
+    private String notes;
    
     // noArgsConstructor
     public Observation(){}
 
     // allArgsConstructor
-    public Observation(Integer id, int species_id, int count, String location, String date){
+    public Observation(Integer id, int species_id, int count, String location, String date, String time, String notes){
         this.id = id;
         this.species_id = species_id;
         this.count =count;
         this.location = location;
         this.date = date;
+        this.time = time;
+        this.notes = notes;
     }
 
     // getter methods
@@ -46,6 +50,12 @@ public class Observation {
     public String getDate(){
         return this.date;
     }
+    public String getTime(){
+        return this.time;
+    }
+    public String getNotes(){
+        return this.notes;
+    }
 
     // setter methods
     public void setId(Integer id){
@@ -62,5 +72,11 @@ public class Observation {
     }
     public void setDate(String date){
         this.date = date;
+    }
+    public void setTime(String time){
+        this.time = time;
+    }
+    public void setNotes(String notes){
+        this.notes = notes;
     }
 }
