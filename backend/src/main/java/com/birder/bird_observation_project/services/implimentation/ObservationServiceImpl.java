@@ -4,32 +4,36 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.birder.bird_observation_project.dtos.ObservationCreationDto;
 import com.birder.bird_observation_project.dtos.ObservationDto;
 import com.birder.bird_observation_project.exceptions.ObservationNotFoundException;
 import com.birder.bird_observation_project.mappers.ObservationMapper;
 import com.birder.bird_observation_project.models.Observation;
 import com.birder.bird_observation_project.repositories.ObservationRepository;
+import com.birder.bird_observation_project.repositories.SpeciesRepository;
 import com.birder.bird_observation_project.services.ObservationService;
 
 @Service
 public class ObservationServiceImpl implements ObservationService{
     private ObservationRepository observationRepository;
+    private ObservationMapper observationMapper;
 
-    public ObservationServiceImpl(ObservationRepository observationRepository){
-        this.observationRepository = observationRepository;
+    public ObservationServiceImpl(ObservationRepository observationRepository, SpeciesRepository speciesRepository){
+        this.observationRepository = observationRepository;  
+        this.observationMapper = new ObservationMapper(speciesRepository);
     }
 
     @Override
-    public ObservationDto saveObservation(ObservationDto observationDto){
-        Observation observation = ObservationMapper.toEntity(observationDto);
+    public ObservationDto saveObservation(ObservationCreationDto observationCreationDto){
+        Observation observation = observationMapper.toEntity(observationCreationDto);
         observation = observationRepository.save(observation);
-        return ObservationMapper.toDto(observation);
+        return observationMapper.toDto(observation);
     }
 
     @Override
     public List<ObservationDto> getObservations(){
         List<Observation> observations = observationRepository.findAll();
-        List<ObservationDto> observationDtos = ObservationMapper.listToDto(observations);
+        List<ObservationDto> observationDtos = observationMapper.listToDto(observations);
         return observationDtos;
 
     }
@@ -37,7 +41,7 @@ public class ObservationServiceImpl implements ObservationService{
     @Override
     public ObservationDto getObservationById(Integer id){
         Observation observation = observationRepository.findById(id).orElseThrow(() -> new ObservationNotFoundException(id));
-        return ObservationMapper.toDto(observation);
+        return observationMapper.toDto(observation);
     }
 
     @Override

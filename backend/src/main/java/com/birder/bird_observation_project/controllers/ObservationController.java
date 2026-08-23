@@ -2,6 +2,7 @@ package com.birder.bird_observation_project.controllers;
 
 import org.springframework.web.bind.annotation.RequestBody;
 
+import com.birder.bird_observation_project.dtos.ObservationCreationDto;
 import com.birder.bird_observation_project.dtos.ObservationDto;
 import com.birder.bird_observation_project.services.ObservationService;
 
@@ -33,8 +34,8 @@ public class ObservationController {
     }
 
     @PostMapping()
-    public ResponseEntity<ObservationDto> createObservation(@RequestBody ObservationDto observationDto){
-        ObservationDto saved = observationService.saveObservation(observationDto);
+    public ResponseEntity<ObservationDto> createObservation(@RequestBody ObservationCreationDto observationCreationDto){
+        ObservationDto saved = observationService.saveObservation(observationCreationDto);
         return new ResponseEntity<>(saved, HttpStatus.CREATED);
     }
 

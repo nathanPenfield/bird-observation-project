@@ -1,37 +1,21 @@
-package com.birder.bird_observation_project.models;
+package com.birder.bird_observation_project.dtos;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
-
-@Entity
-@Table(name="observations")
-public class Observation {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class ObservationCreationDto {
     private Integer id;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "species_id")
-    private Species species;
-    private int count;
+    private int species_id;
     private String location;
+    private int count;
     private String date;
     private String time;
     private String notes;
    
     // noArgsConstructor
-    public Observation(){}
-
+    public ObservationCreationDto(){}
+    
     // allArgsConstructor
-    public Observation(Integer id, Species species, int count, String location, String date, String time, String notes){
+    public ObservationCreationDto(Integer id, int species_id, int count, String location, String date, String time, String notes){
         this.id = id;
-        this.species = species;
+        this.species_id = species_id;
         this.count =count;
         this.location = location;
         this.date = date;
@@ -43,8 +27,8 @@ public class Observation {
     public Integer getId(){
         return this.id;
     }
-    public Species getSpecies(){
-        return this.species;
+    public int getSpeciesId(){
+        return this.species_id;
     }
     public int getCount(){
         return this.count;
@@ -66,8 +50,8 @@ public class Observation {
     public void setId(Integer id){
         this.id = id;
     }
-    public void setSpecies(Species species){
-        this.species = species;
+    public void setSpeciesId(int species_id){
+        this.species_id = species_id;
     }
     public void setCount(int count){
         this.count = count;
