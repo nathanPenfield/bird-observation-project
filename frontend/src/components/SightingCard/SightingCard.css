@@ -1,11 +1,35 @@
 .sighting{
+    box-sizing:border-box;
     display:flex;
     flex-direction:column;
-    align-items:start;
-    justify-content: center;
-    background-color:#798e44ff;
-    width:50dvw;
+    align-items:flex-start;
+    justify-content:center;
+    width:100%;
+    min-height:128px;
+    padding:1.25rem 1.5rem;
+    background-color:#f9f3ebff;
+    border-left:6px solid #798e44ff;
+    border-radius:4px;
+    box-shadow:0 8px 18px rgba(0, 0, 0, 0.16);
+    color:#1e303dff;
+    font-family:Arial, Helvetica, sans-serif;
+    transition:transform 180ms ease, box-shadow 180ms ease;
+}
+.sighting:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 24px rgba(0, 0, 0, 0.22);
 }
 .sighting div{
-    padding:1rem;
+    padding:0.22rem 0;
+}
+.sighting div:first-child{
+    color:#1e303dff;
+    font-family:Georgia, 'Times New Roman', serif;
+    font-size:1.35rem;
+    font-weight:700;
+}
+.sighting div:nth-child(2),
+.sighting div:nth-child(3){
+    color:rgba(30, 48, 61, 0.78);
+    font-size:0.95rem;
 }
