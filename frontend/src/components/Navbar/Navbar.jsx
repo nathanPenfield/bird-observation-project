@@ -1,4 +1,4 @@
-import Logo from "../assets/logo.png"
+import Logo from "../../assets/logo.png"
 import "./Navbar.css"
 
 function Navbar(){
@@ -7,7 +7,7 @@ function Navbar(){
             <a href="/"><img src={Logo} alt="ChirpLog Logo"></img></a>
             <div className="nav-container">
                 <a href="/log">Log</a>
-                <a href="/sightings">Observations</a>
+                <a href="/sightings">My Sightings</a>
                 <a href="/account">Profile</a>
             </div>
         </nav>

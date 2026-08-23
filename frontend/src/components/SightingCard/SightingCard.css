@@ -1,0 +1,11 @@
+.sighting{
+    display:flex;
+    flex-direction:column;
+    align-items:start;
+    justify-content: center;
+    background-color:#798e44ff;
+    width:50dvw;
+}
+.sighting div{
+    padding:1rem;
+}
