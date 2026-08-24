@@ -1,14 +1,16 @@
 import Logo from "../../assets/logo.png"
 import "./Navbar.css"
+import { Link } from "react-router-dom";
 
 function Navbar(){
     return(
         <nav className="navbar">
-            <a href="/"><img src={Logo} alt="ChirpLog Logo"></img></a>
+            <Link to="/"><img src={Logo} alt="ChirpLog Logo"></img></Link>
             <div className="nav-container">
-                <a href="/log">Log</a>
-                <a href="/sightings">My Sightings</a>
-                <a href="/account">Profile</a>
+                <Link to="/log">Log</Link>
+                <Link to="/mysightings">My Sightings</Link>
+                <Link to="/account">Profile</Link>
+                <Link to="/about">About</Link>
             </div>
         </nav>
     );
