@@ -1,4 +1,19 @@
 .sighting{
+    display:flex;
+    width:100%;
+    min-height:128px;
+    padding:0;
+    background-color:transparent;
+    border:none;
+    color:#1e303dff;
+    font-family:Arial, Helvetica, sans-serif;
+    transition:transform 180ms ease, box-shadow 180ms ease;
+}
+.sighting:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 24px rgba(0, 0, 0, 0.22);
+}
+.sighting a{
     box-sizing:border-box;
     display:flex;
     flex-direction:column;
@@ -7,17 +22,11 @@
     width:100%;
     min-height:128px;
     padding:1.25rem 1.5rem;
+    text-decoration: none;
     background-color:#f9f3ebff;
     border-left:6px solid #798e44ff;
     border-radius:4px;
     box-shadow:0 8px 18px rgba(0, 0, 0, 0.16);
-    color:#1e303dff;
-    font-family:Arial, Helvetica, sans-serif;
-    transition:transform 180ms ease, box-shadow 180ms ease;
-}
-.sighting:hover{
-    transform:translateY(-3px);
-    box-shadow:0 12px 24px rgba(0, 0, 0, 0.22);
 }
 .sighting div{
     padding:0.22rem 0;

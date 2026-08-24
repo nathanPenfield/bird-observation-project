@@ -23,7 +23,7 @@ function MySightings(){
             <h1>My Sightings</h1>
             <ol className="sightings">
                 {sightings.map((sighting)=>(
-                    <SightingCard sighting={sighting}/>
+                    <SightingCard sighting={sighting} key={sighting.id}/>
                 ))}
             </ol>
             
