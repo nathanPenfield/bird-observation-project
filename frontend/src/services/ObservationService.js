@@ -19,3 +19,26 @@ export async function getObservationById(id){
 
     return response.json();
 }
+
+export async function createObservation(species_id, count, location, date, time, notes){
+    const response = await fetch("http://localhost:8080/api/observations", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            "species_id":species_id,
+            "count":count,
+            "location":location,
+            "date":date,
+            "time":time,
+            "notes":notes    
+        })
+    });
+
+    if (!response.ok) {
+        throw new Error("Failed to create observation");
+    }
+
+    return response.json();
+}
