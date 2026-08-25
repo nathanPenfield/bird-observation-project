@@ -1,0 +1,105 @@
+.sighting-detail{
+    box-sizing:border-box;
+    width:min(100% - 2rem, 920px);
+    min-height:calc(100vh - 84px);
+    margin:0 auto;
+    padding:clamp(2rem, 7vw, 5rem) 0 5rem;
+    color:#f9f3ebff;
+    font-family:Arial, Helvetica, sans-serif;
+}
+.back-link{
+    color:#d8dfbd;
+    font-size:0.92rem;
+    font-weight:700;
+    text-decoration:none;
+    transition:color 180ms ease;
+}
+.back-link:hover{color:#ffffff;}
+.sighting-hero{
+    padding:clamp(3.5rem, 10vw, 7rem) 0 3rem;
+    border-bottom:1px solid rgba(249, 243, 235, 0.22);
+}
+.eyebrow{
+    margin:0 0 0.9rem;
+    color:#b9c886;
+    font-size:0.76rem;
+    font-weight:700;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+}
+.sighting-hero h1,
+.sighting-state h1{
+    margin:0;
+    color:#f9f3ebff;
+    font-family:Georgia, 'Times New Roman', serif;
+    font-size:clamp(3rem, 9vw, 6.7rem);
+    font-weight:400;
+    line-height:0.95;
+}
+.sighting-date{
+    margin:1.5rem 0 0;
+    color:rgba(249, 243, 235, 0.72);
+    font-size:1.08rem;
+}
+.sighting-facts{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    border:1px solid rgba(249, 243, 235);
+    gap:1px;
+    background-color:#f9f3ebff;
+}
+.fact{
+    box-sizing:border-box;
+    min-height:126px;
+    padding:1.5rem 1.2rem 1.25rem 1.2rem;
+    background-color:#1e303dff;
+}
+.fact-label{
+    display:block;
+    margin-bottom:0.75rem;
+    color:rgba(249, 243, 235, 0.58);
+    font-size:0.76rem;
+    font-weight:700;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+}
+.fact strong{
+    color:#f9f3ebff;
+    font-family:Georgia, 'Times New Roman', serif;
+    font-size:1.2rem;
+    font-weight:400;
+    overflow-wrap:anywhere;
+}
+.notes-panel{
+    display:grid;
+    grid-template-columns:0.7fr 1.3fr;
+    gap:2rem;
+    padding:3.5rem 0;
+}
+.notes-panel h2{
+    margin:0;
+    color:#f9f3ebff;
+    font-family:Georgia, 'Times New Roman', serif;
+    font-size:2.2rem;
+    font-weight:400;
+}
+.notes-copy{
+    max-width:600px;
+    margin:0;
+    color:#f9f3ebff;
+    font-family:Georgia, 'Times New Roman', serif;
+    font-size:clamp(1.25rem, 2.5vw, 1.65rem);
+    line-height:1.55;
+    white-space:pre-wrap;
+}
+.notes-empty{color:rgba(249, 243, 235, 0.52);}
+.sighting-state{padding:clamp(4rem, 12vw, 8rem) 0;}
+.sighting-state h1{font-size:clamp(2.6rem, 7vw, 5rem);}
+.sighting-state .back-link{display:inline-block;margin-top:2rem;}
+
+@media (max-width: 640px){
+    .sighting-detail{width:min(100% - 2rem, 920px);}
+    .sighting-hero{padding-top:4rem;}
+    .sighting-facts{grid-template-columns:repeat(2, 1fr);}
+    .notes-panel{grid-template-columns:1fr;gap:1.5rem;padding-top:2.75rem;}
+}
