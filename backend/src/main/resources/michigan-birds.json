@@ -1,0 +1,1002 @@
+[
+  {
+    "name": "Snow Goose",
+    "category": "Waterfowl"
+  },
+  {
+    "name": "Ross's Goose",
+    "category": "Waterfowl"
+  },
+  {
+    "name": "Graylag Goose",
+    "category": "Waterfowl"
+  },
+  {
+    "name": "Greater White-fronted Goose",
+    "category": "Waterfowl"
+  },
+  {
+    "name": "Brant",
+    "category": "Waterfowl"
+  },
+  {
+    "name": "Cackling Goose",
+    "category": "Waterfowl"
+  },
+  {
+    "name": "Canada Goose",
+    "category": "Waterfowl"
+  },
+  {
+    "name": "Mute Swan",
+    "category": "Waterfowl"
+  },
+  {
+    "name": "Trumpeter Swan",
+    "category": "Waterfowl"
+  },
+  {
+    "name": "Tundra Swan",
+    "category": "Waterfowl"
+  },
+  {
+    "name": "Wood Duck",
+    "category": "Waterfowl"
+  },
+  {
+    "name": "Blue-winged Teal",
+    "category": "Waterfowl"
+  },
+  {
+    "name": "Northern Shoveler",
+    "category": "Waterfowl"
+  },
+  {
+    "name": "Gadwall",
+    "category": "Waterfowl"
+  },
+  {
+    "name": "American Wigeon",
+    "category": "Waterfowl"
+  },
+  {
+    "name": "Mallard",
+    "category": "Waterfowl"
+  },
+  {
+    "name": "American Black Duck",
+    "category": "Waterfowl"
+  },
+  {
+    "name": "Green-winged Teal",
+    "category": "Waterfowl"
+  },
+  {
+    "name": "Northern Pintail",
+    "category": "Waterfowl"
+  },
+  {
+    "name": "Canvasback",
+    "category": "Waterfowl"
+  },
+  {
+    "name": "Redhead",
+    "category": "Waterfowl"
+  },
+  {
+    "name": "Ring-necked Duck",
+    "category": "Waterfowl"
+  },
+  {
+    "name": "Greater Scaup",
+    "category": "Waterfowl"
+  },
+  {
+    "name": "Lesser Scaup",
+    "category": "Waterfowl"
+  },
+  {
+    "name": "Surf Scoter",
+    "category": "Waterfowl"
+  },
+  {
+    "name": "White-winged Scoter",
+    "category": "Waterfowl"
+  },
+  {
+    "name": "Black Scoter",
+    "category": "Waterfowl"
+  },
+  {
+    "name": "Long-tailed Duck",
+    "category": "Waterfowl"
+  },
+  {
+    "name": "Bufflehead",
+    "category": "Waterfowl"
+  },
+  {
+    "name": "Common Goldeneye",
+    "category": "Waterfowl"
+  },
+  {
+    "name": "Hooded Merganser",
+    "category": "Waterfowl"
+  },
+  {
+    "name": "Red-breasted Merganser",
+    "category": "Waterfowl"
+  },
+  {
+    "name": "Ruddy Duck",
+    "category": "Waterfowl"
+  },
+  {
+    "name": "Double-crested Cormorant",
+    "category": "Cormorants And Anhingas"
+  },
+  {
+    "name": "Common Loon",
+    "category": "Loons"
+  },
+  {
+    "name": "Pied-billed Grebe",
+    "category": "Grebes"
+  },
+  {
+    "name": "Horned Grebe",
+    "category": "Grebes"
+  },
+  {
+    "name": "Red-necked Grebe",
+    "category": "Grebes"
+  },
+  {
+    "name": "American White Pelican",
+    "category": "Pelicans"
+  },
+  {
+    "name": "Bonaparte's Gull",
+    "category": "Gulls, Terns, And Skimmers"
+  },
+  {
+    "name": "Franklin's Gull",
+    "category": "Gulls, Terns, And Skimmers"
+  },
+  {
+    "name": "Ring-billed Gull",
+    "category": "Gulls, Terns, And Skimmers"
+  },
+  {
+    "name": "American Herring Gull",
+    "category": "Gulls, Terns, And Skimmers"
+  },
+  {
+    "name": "Caspian Tern",
+    "category": "Gulls, Terns, And Skimmers"
+  },
+  {
+    "name": "Black Tern",
+    "category": "Gulls, Terns, And Skimmers"
+  },
+  {
+    "name": "Forster's Tern",
+    "category": "Gulls, Terns, And Skimmers"
+  },
+  {
+    "name": "Black-bellied Plover",
+    "category": "Shorebirds"
+  },
+  {
+    "name": "American Golden-Plover",
+    "category": "Shorebirds"
+  },
+  {
+    "name": "Killdeer",
+    "category": "Shorebirds"
+  },
+  {
+    "name": "Semipalmated Plover",
+    "category": "Shorebirds"
+  },
+  {
+    "name": "Upland Sandpiper",
+    "category": "Shorebirds"
+  },
+  {
+    "name": "American Woodcock",
+    "category": "Shorebirds"
+  },
+  {
+    "name": "Wilson's Snipe",
+    "category": "Shorebirds"
+  },
+  {
+    "name": "Wilson's Phalarope",
+    "category": "Shorebirds"
+  },
+  {
+    "name": "Spotted Sandpiper",
+    "category": "Shorebirds"
+  },
+  {
+    "name": "Solitary Sandpiper",
+    "category": "Shorebirds"
+  },
+  {
+    "name": "Lesser Yellowlegs",
+    "category": "Shorebirds"
+  },
+  {
+    "name": "Willet",
+    "category": "Shorebirds"
+  },
+  {
+    "name": "Greater Yellowlegs",
+    "category": "Shorebirds"
+  },
+  {
+    "name": "Stilt Sandpiper",
+    "category": "Shorebirds"
+  },
+  {
+    "name": "Dunlin",
+    "category": "Shorebirds"
+  },
+  {
+    "name": "White-rumped Sandpiper",
+    "category": "Shorebirds"
+  },
+  {
+    "name": "Least Sandpiper",
+    "category": "Shorebirds"
+  },
+  {
+    "name": "Pectoral Sandpiper",
+    "category": "Shorebirds"
+  },
+  {
+    "name": "Semipalmated Sandpiper",
+    "category": "Shorebirds"
+  },
+  {
+    "name": "Sandhill Crane",
+    "category": "Cranes"
+  },
+  {
+    "name": "White-faced Ibis",
+    "category": "Herons, Ibis, And Allies"
+  },
+  {
+    "name": "American Bittern",
+    "category": "Herons, Ibis, And Allies"
+  },
+  {
+    "name": "Least Bittern",
+    "category": "Herons, Ibis, And Allies"
+  },
+  {
+    "name": "Black-crowned Night Heron",
+    "category": "Herons, Ibis, And Allies"
+  },
+  {
+    "name": "Green Heron",
+    "category": "Herons, Ibis, And Allies"
+  },
+  {
+    "name": "Great Egret",
+    "category": "Herons, Ibis, And Allies"
+  },
+  {
+    "name": "Great Blue Heron",
+    "category": "Herons, Ibis, And Allies"
+  },
+  {
+    "name": "Virginia Rail",
+    "category": "Rails, Gallinules, And Allies"
+  },
+  {
+    "name": "Sora",
+    "category": "Rails, Gallinules, And Allies"
+  },
+  {
+    "name": "Common Gallinule",
+    "category": "Rails, Gallinules, And Allies"
+  },
+  {
+    "name": "American Coot",
+    "category": "Rails, Gallinules, And Allies"
+  },
+  {
+    "name": "Northern Bobwhite",
+    "category": "Grouse, Quail, And Allies"
+  },
+  {
+    "name": "Wild Turkey",
+    "category": "Grouse, Quail, And Allies"
+  },
+  {
+    "name": "Ruffed Grouse",
+    "category": "Grouse, Quail, And Allies"
+  },
+  {
+    "name": "Ring-necked Pheasant",
+    "category": "Grouse, Quail, And Allies"
+  },
+  {
+    "name": "Rock Pigeon",
+    "category": "Pigeons And Doves"
+  },
+  {
+    "name": "Mourning Dove",
+    "category": "Pigeons And Doves"
+  },
+  {
+    "name": "Turkey Vulture",
+    "category": "Vultures, Hawks, and Allies"
+  },
+  {
+    "name": "Osprey",
+    "category": "Vultures, Hawks, and Allies"
+  },
+  {
+    "name": "Golden Eagle",
+    "category": "Vultures, Hawks, and Allies"
+  },
+  {
+    "name": "Sharp-shinned Hawk",
+    "category": "Vultures, Hawks, and Allies"
+  },
+  {
+    "name": "Cooper's Hawk",
+    "category": "Vultures, Hawks, and Allies"
+  },
+  {
+    "name": "American Goshawk",
+    "category": "Vultures, Hawks, and Allies"
+  },
+  {
+    "name": "Northern Harrier",
+    "category": "Vultures, Hawks, and Allies"
+  },
+  {
+    "name": "Bald Eagle",
+    "category": "Vultures, Hawks, and Allies"
+  },
+  {
+    "name": "Broad-winged Hawk",
+    "category": "Vultures, Hawks, and Allies"
+  },
+  {
+    "name": "Red-shouldered Hawk",
+    "category": "Vultures, Hawks, and Allies"
+  },
+  {
+    "name": "Red-tailed Hawk",
+    "category": "Vultures, Hawks, and Allies"
+  },
+  {
+    "name": "Rough-legged Hawk",
+    "category": "Vultures, Hawks, and Allies"
+  },
+  {
+    "name": "American Kestrel",
+    "category": "Falcons And Caracaras"
+  },
+  {
+    "name": "Merlin",
+    "category": "Falcons And Caracaras"
+  },
+  {
+    "name": "Peregrine Falcon",
+    "category": "Falcons And Caracaras"
+  },
+  {
+    "name": "Crested Caracara",
+    "category": "Falcons And Caracaras"
+  },
+  {
+    "name": "Eastern Screech-Owl",
+    "category": "Owls"
+  },
+  {
+    "name": "Snowy Owl",
+    "category": "Owls"
+  },
+  {
+    "name": "Great Horned Owl",
+    "category": "Owls"
+  },
+  {
+    "name": "Barred Owl",
+    "category": "Owls"
+  },
+  {
+    "name": "Long-eared Owl",
+    "category": "Owls"
+  },
+  {
+    "name": "Northern Saw-whet Owl",
+    "category": "Owls"
+  },
+  {
+    "name": "Common Nighthawk",
+    "category": "Nightjars"
+  },
+  {
+    "name": "Eastern Whip-poor-will",
+    "category": "Nightjars"
+  },
+  {
+    "name": "Ruby-throated Hummingbird",
+    "category": "Hummingbirds"
+  },
+  {
+    "name": "Rufous Hummingbird",
+    "category": "Hummingbirds"
+  },
+  {
+    "name": "Chimney Swift",
+    "category": "Swifts"
+  },
+  {
+    "name": "Bank Swallow",
+    "category": "Martins And Swallows"
+  },
+  {
+    "name": "Tree Swallow",
+    "category": "Martins And Swallows"
+  },
+  {
+    "name": "Purple Martin",
+    "category": "Martins And Swallows"
+  },
+  {
+    "name": "Northern Rough-winged Swallow",
+    "category": "Martins And Swallows"
+  },
+  {
+    "name": "Barn Swallow",
+    "category": "Martins And Swallows"
+  },
+  {
+    "name": "Cliff Swallow",
+    "category": "Martins And Swallows"
+  },
+  {
+    "name": "Yellow-billed Cuckoo",
+    "category": "Cuckoos"
+  },
+  {
+    "name": "Black-billed Cuckoo",
+    "category": "Cuckoos"
+  },
+  {
+    "name": "Belted Kingfisher",
+    "category": "Kingfishers"
+  },
+  {
+    "name": "Yellow-bellied Sapsucker",
+    "category": "Woodpeckers"
+  },
+  {
+    "name": "Red-headed Woodpecker",
+    "category": "Woodpeckers"
+  },
+  {
+    "name": "Red-bellied Woodpecker",
+    "category": "Woodpeckers"
+  },
+  {
+    "name": "Downy Woodpecker",
+    "category": "Woodpeckers"
+  },
+  {
+    "name": "Hairy Woodpecker",
+    "category": "Woodpeckers"
+  },
+  {
+    "name": "Pileated Woodpecker",
+    "category": "Woodpeckers"
+  },
+  {
+    "name": "Northern Flicker",
+    "category": "Woodpeckers"
+  },
+  {
+    "name": "Blue Jay",
+    "category": "Jays, Magpies, Crows, And Ravens"
+  },
+  {
+    "name": "American Crow",
+    "category": "Jays, Magpies, Crows, And Ravens"
+  },
+  {
+    "name": "Common Raven",
+    "category": "Jays, Magpies, Crows, And Ravens"
+  },
+  {
+    "name": "Olive-sided Flycatcher",
+    "category": "Flycatchers"
+  },
+  {
+    "name": "Eastern Wood-Pewee",
+    "category": "Flycatchers"
+  },
+  {
+    "name": "Yellow-bellied Flycatcher",
+    "category": "Flycatchers"
+  },
+  {
+    "name": "Acadian Flycatcher",
+    "category": "Flycatchers"
+  },
+  {
+    "name": "Alder Flycatcher",
+    "category": "Flycatchers"
+  },
+  {
+    "name": "Willow Flycatcher",
+    "category": "Flycatchers"
+  },
+  {
+    "name": "Least Flycatcher",
+    "category": "Flycatchers"
+  },
+  {
+    "name": "Eastern Phoebe",
+    "category": "Flycatchers"
+  },
+  {
+    "name": "Great Crested Flycatcher",
+    "category": "Flycatchers"
+  },
+  {
+    "name": "Eastern Kingbird",
+    "category": "Flycatchers"
+  },
+  {
+    "name": "Loggerhead Shrike",
+    "category": "Shrikes"
+  },
+  {
+    "name": "Northern Shrike",
+    "category": "Shrikes"
+  },
+  {
+    "name": "Gray Catbird",
+    "category": "Catbirds, Mockingbirds, And Thrashers"
+  },
+  {
+    "name": "Brown Thrasher",
+    "category": "Catbirds, Mockingbirds, And Thrashers"
+  },
+  {
+    "name": "Northern Mockingbird",
+    "category": "Catbirds, Mockingbirds, And Thrashers"
+  },
+  {
+    "name": "Eastern Bluebird",
+    "category": "Thrushes"
+  },
+  {
+    "name": "Townsend's Solitaire",
+    "category": "Thrushes"
+  },
+  {
+    "name": "Veery",
+    "category": "Thrushes"
+  },
+  {
+    "name": "Gray-cheeked Thrush",
+    "category": "Thrushes"
+  },
+  {
+    "name": "Swainson's Thrush",
+    "category": "Thrushes"
+  },
+  {
+    "name": "Hermit Thrush",
+    "category": "Thrushes"
+  },
+  {
+    "name": "Wood Thrush",
+    "category": "Thrushes"
+  },
+  {
+    "name": "American Robin",
+    "category": "Thrushes"
+  },
+  {
+    "name": "Bohemian Waxwing",
+    "category": "Waxwings"
+  },
+  {
+    "name": "Cedar Waxwing",
+    "category": "Waxwings"
+  },
+  {
+    "name": "Black-capped Chickadee",
+    "category": "Tits, Chickadees, And Titmice"
+  },
+  {
+    "name": "Tufted Titmouse",
+    "category": "Tits, Chickadees, And Titmice"
+  },
+  {
+    "name": "White-breasted Nuthatch",
+    "category": "Nuthatches"
+  },
+  {
+    "name": "Red-breasted Nuthatch",
+    "category": "Nuthatches"
+  },
+  {
+    "name": "Brown Creeper",
+    "category": "Treecreepers"
+  },
+  {
+    "name": "Northern House Wren",
+    "category": "Wrens"
+  },
+  {
+    "name": "Winter Wren",
+    "category": "Wrens"
+  },
+  {
+    "name": "Sedge Wren",
+    "category": "Wrens"
+  },
+  {
+    "name": "Marsh Wren",
+    "category": "Wrens"
+  },
+  {
+    "name": "Carolina Wren",
+    "category": "Wrens"
+  },
+  {
+    "name": "Blue-gray Gnatcatcher",
+    "category": "Gnatcatchers"
+  },
+  {
+    "name": "Ruby-crowned Kinglet",
+    "category": "Kinglets"
+  },
+  {
+    "name": "Golden-crowned Kinglet",
+    "category": "Kinglets"
+  },
+  {
+    "name": "White-eyed Vireo",
+    "category": "Vireos"
+  },
+  {
+    "name": "Yellow-throated Vireo",
+    "category": "Vireos"
+  },
+  {
+    "name": "Blue-headed Vireo",
+    "category": "Vireos"
+  },
+  {
+    "name": "Philadelphia Vireo",
+    "category": "Vireos"
+  },
+  {
+    "name": "Eastern Warbling Vireo",
+    "category": "Vireos"
+  },
+  {
+    "name": "Red-eyed Vireo",
+    "category": "Vireos"
+  },
+  {
+    "name": "Ovenbird",
+    "category": "Wood-Warblers"
+  },
+  {
+    "name": "Louisiana Waterthrush",
+    "category": "Wood-Warblers"
+  },
+  {
+    "name": "Northern Waterthrush",
+    "category": "Wood-Warblers"
+  },
+  {
+    "name": "Golden-winged Warbler",
+    "category": "Wood-Warblers"
+  },
+  {
+    "name": "Blue-winged Warbler",
+    "category": "Wood-Warblers"
+  },
+  {
+    "name": "Black-and-white Warbler",
+    "category": "Wood-Warblers"
+  },
+  {
+    "name": "Prothonotary Warbler",
+    "category": "Wood-Warblers"
+  },
+  {
+    "name": "Tennessee Warbler",
+    "category": "Wood-Warblers"
+  },
+  {
+    "name": "Orange-crowned Warbler",
+    "category": "Wood-Warblers"
+  },
+  {
+    "name": "Nashville Warbler",
+    "category": "Wood-Warblers"
+  },
+  {
+    "name": "Connecticut Warbler",
+    "category": "Wood-Warblers"
+  },
+  {
+    "name": "Mourning Warbler",
+    "category": "Wood-Warblers"
+  },
+  {
+    "name": "Common Yellowthroat",
+    "category": "Wood-Warblers"
+  },
+  {
+    "name": "Hooded Warbler",
+    "category": "Wood-Warblers"
+  },
+  {
+    "name": "American Redstart",
+    "category": "Wood-Warblers"
+  },
+  {
+    "name": "Cape May Warbler",
+    "category": "Wood-Warblers"
+  },
+  {
+    "name": "Cerulean Warbler",
+    "category": "Wood-Warblers"
+  },
+  {
+    "name": "Northern Parula",
+    "category": "Wood-Warblers"
+  },
+  {
+    "name": "Magnolia Warbler",
+    "category": "Wood-Warblers"
+  },
+  {
+    "name": "Bay-breasted Warbler",
+    "category": "Wood-Warblers"
+  },
+  {
+    "name": "Blackburnian Warbler",
+    "category": "Wood-Warblers"
+  },
+  {
+    "name": "Northern Yellow Warbler",
+    "category": "Wood-Warblers"
+  },
+  {
+    "name": "Chestnut-sided Warbler",
+    "category": "Wood-Warblers"
+  },
+  {
+    "name": "Blackpoll Warbler",
+    "category": "Wood-Warblers"
+  },
+  {
+    "name": "Black-throated Blue Warbler",
+    "category": "Wood-Warblers"
+  },
+  {
+    "name": "Palm Warbler",
+    "category": "Wood-Warblers"
+  },
+  {
+    "name": "Pine Warbler",
+    "category": "Wood-Warblers"
+  },
+  {
+    "name": "Yellow-rumped Warbler",
+    "category": "Wood-Warblers"
+  },
+  {
+    "name": "Yellow-throated Warbler",
+    "category": "Wood-Warblers"
+  },
+  {
+    "name": "Black-throated Green Warbler",
+    "category": "Wood-Warblers"
+  },
+  {
+    "name": "Canada Warbler",
+    "category": "Wood-Warblers"
+  },
+  {
+    "name": "Wilson's Warbler",
+    "category": "Wood-Warblers"
+  },
+  {
+    "name": "Yellow-breasted Chat",
+    "category": "Wood-Warblers"
+  },
+  {
+    "name": "American Pipit",
+    "category": "Wagtails And Pipits"
+  },
+  {
+    "name": "Horned Lark",
+    "category": "Larks"
+  },
+  {
+    "name": "Lapland Longspur",
+    "category": "Longspurs And Snow Buntings"
+  },
+  {
+    "name": "Snow Bunting",
+    "category": "Longspurs And Snow Buntings"
+  },
+  {
+    "name": "Grasshopper Sparrow",
+    "category": "New World Sparrows"
+  },
+  {
+    "name": "Shipping Sparrow",
+    "category": "New World Sparrows"
+  },
+  {
+    "name": "Clay-colored Sparrow",
+    "category": "New World Sparrows"
+  },
+  {
+    "name": "Field Sparrow",
+    "category": "New World Sparrows"
+  },
+  {
+    "name": "American Tree Sparrow",
+    "category": "New World Sparrows"
+  },
+  {
+    "name": "Fox Sparrow",
+    "category": "New World Sparrows"
+  },
+  {
+    "name": "Dark-eyed Junco",
+    "category": "New World Sparrows"
+  },
+  {
+    "name": "White-crowned Sparrow",
+    "category": "New World Sparrows"
+  },
+  {
+    "name": "White-throated Sparrow",
+    "category": "New World Sparrows"
+  },
+  {
+    "name": "Vesper Sparrow",
+    "category": "New World Sparrows"
+  },
+  {
+    "name": "Savannah Sparrow",
+    "category": "New World Sparrows"
+  },
+  {
+    "name": "Song Sparrow",
+    "category": "New World Sparrows"
+  },
+  {
+    "name": "Lincoln's Sparrow",
+    "category": "New World Sparrows"
+  },
+  {
+    "name": "Swamp Sparrow",
+    "category": "New World Sparrows"
+  },
+  {
+    "name": "Eastern Towhee",
+    "category": "New World Sparrows"
+  },
+  {
+    "name": "House Sparrow",
+    "category": "Old World Sparrows"
+  },
+  {
+    "name": "Evening Grosbeak",
+    "category": "Finches, Euphonias, And Allies"
+  },
+  {
+    "name": "House Finch",
+    "category": "Finches, Euphonias, And Allies"
+  },
+  {
+    "name": "Purple Finch",
+    "category": "Finches, Euphonias, And Allies"
+  },
+  {
+    "name": "Redpoll",
+    "category": "Finches, Euphonias, And Allies"
+  },
+  {
+    "name": "Red Crossbill",
+    "category": "Finches, Euphonias, And Allies"
+  },
+  {
+    "name": "White-winged Crossbill",
+    "category": "Finches, Euphonias, And Allies"
+  },
+  {
+    "name": "Pine Siskin",
+    "category": "Finches, Euphonias, And Allies"
+  },
+  {
+    "name": "American Goldfinch",
+    "category": "Finches, Euphonias, And Allies"
+  },
+  {
+    "name": "Scarlet Tanager",
+    "category": "Cardinals, Grosbeaks, And Allies"
+  },
+  {
+    "name": "Western Tanager",
+    "category": "Cardinals, Grosbeaks, And Allies"
+  },
+  {
+    "name": "Northern Cardinal",
+    "category": "Cardinals, Grosbeaks, And Allies"
+  },
+  {
+    "name": "Rose-breasted Grosbeak",
+    "category": "Cardinals, Grosbeaks, And Allies"
+  },
+  {
+    "name": "Indigo Bunting",
+    "category": "Cardinals, Grosbeaks, And Allies"
+  },
+  {
+    "name": "Dickcissel",
+    "category": "Cardinals, Grosbeaks, And Allies"
+  },
+  {
+    "name": "Bobolink",
+    "category": "Blackbirds"
+  },
+  {
+    "name": "Eastern Meadowlark",
+    "category": "Blackbirds"
+  },
+  {
+    "name": "Orchard Oriole",
+    "category": "Blackbirds"
+  },
+  {
+    "name": "Baltimore Oriole",
+    "category": "Blackbirds"
+  },
+  {
+    "name": "Red-winged Blackbird",
+    "category": "Blackbirds"
+  },
+  {
+    "name": "Brown-headed Cowbird",
+    "category": "Blackbirds"
+  },
+  {
+    "name": "Rusty Blackbird",
+    "category": "Blackbirds"
+  },
+  {
+    "name": "Brewer's Blackbird",
+    "category": "Blackbirds"
+  },
+  {
+    "name": "Common Grackle",
+    "category": "Blackbirds"
+  },
+  {
+    "name": "European Starling",
+    "category": "Starling And Mynas"
+  }
+]

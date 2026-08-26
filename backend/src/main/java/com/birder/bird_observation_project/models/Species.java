@@ -11,29 +11,37 @@ import jakarta.persistence.Table;
 public class Species {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     
     private String name;
+    private String category;
     
     public Species(){}
     
-    public Species(int id, String name){
+    public Species(Integer id, String name, String category){
         this.id = id;
         this.name = name;
+        this.category = category;
     }
 
-    public int getId(){
+    public Integer getId(){
         return this.id;
     }
     public String getName(){
         return this.name;
     }
+    public String getCategory(){
+        return this.category;
+    }
 
-    public void setId(int id){
+    public void setId(Integer id){
         this.id = id;
     }
     public void setName(String name){
         this.name = name;
+    }
+    public void setCategory(String category){
+        this.category = category;
     }
 
 }
