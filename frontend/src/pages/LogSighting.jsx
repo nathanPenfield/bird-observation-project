@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar/Navbar.jsx"
 import { createObservation } from "../services/ObservationService.js";
 import { getSpecies } from "../services/SpeciesService.js";
+import "./LogSighting.css";
 
 function LogSighting (){
     const navigate = useNavigate();
@@ -49,30 +50,50 @@ function LogSighting (){
     return(
         <>
             <Navbar/>
-            <h1>Log A Sighting</h1>
-            <form onSubmit={handleSubmit}>
-                <label>Bird:</label>
-                <select value={birdId} onChange={(e)=>{setBirdId(e.target.value)}}>
-                    <option value={-1}>Select a species</option>
-                    {species.map((speciesOption) => (
-                        <option key={speciesOption.id} value={speciesOption.id}>
-                            {speciesOption.name}
-                        </option>
-                    ))}
-                </select>
-                <label>Count:</label>
-                <input value={count} onChange={(e)=>{setCount(e.target.value)}}/>
-                <label>Location:</label>
-                <input value={location} onChange={(e)=>{setLocation(e.target.value)}}/>
-                <label>Date:</label>
-                <input type="date" value={date} onChange={(e)=>{setDate(e.target.value)}}/>
-                <label>Time:</label>
-                <input type="time" value={time} onChange={(e)=>{setTime(e.target.value)}}/>
-                <label>Notes (optional):</label>
-                <input value={notes} onChange={(e)=>{setNotes(e.target.value)}}/>
-                <button>Log Sighting</button>
-                {error && <p>{error}</p>}
-            </form>
+            <main className="log-page">
+                <div className="log-intro">
+                    <p className="log-eyebrow">Add to your field notes</p>
+                    <h1>Log a sighting</h1>
+                    <p className="log-description">Capture the details while they are still fresh.</p>
+                </div>
+                <form className="log-form" onSubmit={handleSubmit}>
+                    <div className="form-field">
+                        <label htmlFor="bird">Bird</label>
+                        <select id="bird" value={birdId} onChange={(e)=>{setBirdId(e.target.value)}}>
+                            <option value={-1}>Select a species</option>
+                            {species.map((speciesOption) => (
+                                <option key={speciesOption.id} value={speciesOption.id}>
+                                    {speciesOption.name}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+                    <div className="form-field">
+                        <label htmlFor="count">Count</label>
+                        <input id="count" type="number" min="1" value={count} onChange={(e)=>{setCount(e.target.value)}}/>
+                    </div>
+                    <div className="form-field form-field-wide">
+                        <label htmlFor="location">Location</label>
+                        <input id="location" value={location} onChange={(e)=>{setLocation(e.target.value)}}/>
+                    </div>
+                    <div className="form-field">
+                        <label htmlFor="date">Date</label>
+                        <input id="date" type="date" value={date} onChange={(e)=>{setDate(e.target.value)}}/>
+                    </div>
+                    <div className="form-field">
+                        <label htmlFor="time">Time</label>
+                        <input id="time" type="time" value={time} onChange={(e)=>{setTime(e.target.value)}}/>
+                    </div>
+                    <div className="form-field form-field-wide">
+                        <label htmlFor="notes">Notes <span>(optional)</span></label>
+                        <textarea id="notes" rows="4" value={notes} onChange={(e)=>{setNotes(e.target.value)}} />
+                    </div>
+                    <div className="form-actions">
+                        <button type="submit">Log sighting</button>
+                        {error && <p className="form-error">{error}</p>}
+                    </div>
+                </form>
+            </main>
         </>
     );
 }
