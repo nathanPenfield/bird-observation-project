@@ -50,7 +50,7 @@ function LogSighting (){
     return(
         <>
             <Navbar/>
-            <main className="log-page">
+            <main className="log-page page">
                 <div className="log-intro">
                     <p className="log-eyebrow">Add to your field notes</p>
                     <h1>Log a sighting</h1>

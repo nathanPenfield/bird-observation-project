@@ -5,7 +5,7 @@ function Home(){
     return(
         <>
             <Navbar/>
-            <main className="home-page">
+            <main className="page">
                 <h1>ChirpLog</h1>
                 <h3>See it. Say it. Log it.</h3>
             </main>

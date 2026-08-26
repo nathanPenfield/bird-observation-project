@@ -20,13 +20,14 @@ function MySightings(){
     return (
         <>
             <Navbar/>
-            <h1>My Sightings</h1>
-            <ol className="sightings">
-                {sightings.map((sighting)=>(
-                    <SightingCard sighting={sighting} key={sighting.id}/>
-                ))}
-            </ol>
-            
+            <main className="page">
+                <h1>My Sightings</h1>
+                <ol className="sightings">
+                    {sightings.map((sighting)=>(
+                        <SightingCard sighting={sighting} key={sighting.id}/>
+                    ))}
+                </ol>
+            </main>            
         </>
     );
 }

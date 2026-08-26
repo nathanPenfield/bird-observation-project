@@ -1,6 +1,4 @@
 .log-page{
-    box-sizing:border-box;
-    min-height:calc(100vh - 84px);
     padding:clamp(3rem, 8vw, 6rem) 1rem 5rem;
     color:#f9f3eb;
     font-family:Arial, Helvetica, sans-serif;

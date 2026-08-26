@@ -2,3 +2,8 @@ body{
     margin:0;
     background:linear-gradient(145deg, #1e303d 0%, #294656 100%);
 }
+.page{
+    box-sizing:border-box;
+    min-height:calc(100vh - 84px);
+    padding-bottom:4rem;
+}

@@ -26,7 +26,7 @@ function IndividualSighting(){
     return(
         <>
             <Navbar/>
-            <main className="sighting-detail">
+            <main className="sighting-detail page">
                 {error ? (
                     <section className="sighting-state">
                         <p className="eyebrow">Field note unavailable</p>
