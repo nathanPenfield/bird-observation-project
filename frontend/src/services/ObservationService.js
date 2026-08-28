@@ -46,5 +46,39 @@ export async function createObservation(species_id, count, location, date, time,
         throw new Error("Failed to create observation");
     }
 
-    return response.json();
+    return;
+}
+
+export async function deleteObservationById(id){
+    const response = await fetch(API_URL+`/${id}`,{method:"DELETE"});
+
+    if (!response.ok){
+        throw new Error(`Failed to delete observation with id: ${id}`);
+    }
+
+    return;
+}
+
+export async function updateObservation(id, species_id, count, location, date, time, notes){
+    const response = await fetch(API_URL+`/${id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            "id":id,
+            "species_id":species_id,
+            "count":count,
+            "location":location,
+            "date":date,
+            "time":time,
+            "notes":notes   
+        })
+    });
+
+    if (!response.ok) {
+        throw new Error("Failed to update observation");
+    }
+
+    return;
 }

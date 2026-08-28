@@ -1,15 +1,36 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { getObservationById } from "../services/ObservationService";
-
+import { getObservationById, deleteObservationById, updateObservation } from "../services/ObservationService";
+import ObservationForm from "../components/ObservationForm/ObservationForm"
 import Navbar from "../components/Navbar/Navbar";
 import { Link } from "react-router-dom";
 import "./IndividualSighting.css";
 
 function IndividualSighting(){
+    const navigate = useNavigate();
+   
     const {id} = useParams();
     const [sighting,setSighting] = useState();
-    const [error, setError] = useState(false);
+    const [update, setUpdate] = useState(false);
+    const [error, setError] = useState("");
+
+    const deleteObservation = async ()=>{
+        try{
+            await deleteObservationById(id);
+            navigate("/mysightings")
+        }catch{
+            error("Unable to delete observation");
+        }
+    }
+    
+    const handleUpdate = async (formData)=>{
+        try{
+            await updateObservation(id, formData.speciesId, formData.count, formData.location, formData.date, formData.time, formData.notes);
+            setUpdate(false);
+        }catch{
+            setError("Unable to update observation");
+        }
+    }
 
     useEffect(() => {
         async function loadSighting(){
@@ -17,7 +38,7 @@ function IndividualSighting(){
                 const data = await getObservationById(id);
                 setSighting(data);
             } catch {
-                setError(true);
+                navigate("/404");
             }
         }
         loadSighting();
@@ -27,16 +48,13 @@ function IndividualSighting(){
         <>
             <Navbar/>
             <main className="sighting-detail page">
-                {error ? (
-                    <section className="sighting-state">
-                        <p className="eyebrow">Field note unavailable</p>
-                        <h1>We couldn’t find that sighting.</h1>
-                        <Link className="back-link" to="/mysightings">Back to My Sightings</Link>
-                    </section>
+                {update ? (
+                    <ObservationForm handleSubmit={handleUpdate} error={error} data={sighting}/>
                 ) : sighting ? (
                     <>
                         <Link className="back-link" to="/mysightings">&larr; Back to My Sightings</Link>
                         <section className="sighting-hero">
+                            <p className="eyebrow">Observation record</p>
                             <h1>{sighting.species.name}</h1>
                             <p className="sighting-date">Spotted on {sighting.date} at {sighting.time}</p>
                         </section>
@@ -70,6 +88,20 @@ function IndividualSighting(){
                                 <p className="notes-copy">{sighting.notes}</p>
                             </section>
                         )}
+
+                        <section className="sighting-actions" aria-label="Observation actions">
+                            <div>
+                                <p className="eyebrow">Manage record</p>
+                            </div>
+                            <div className="observation-buttons">
+                                <button type="button" className="edit-button" onClick={()=>{setUpdate(true)}}>
+                                    Edit observation
+                                </button>
+                                <button type="button" className="delete-button" onClick={deleteObservation}>
+                                    Delete observation
+                                </button>
+                            </div>
+                        </section>
                     </>
                 ) : (
                     <section className="sighting-state">

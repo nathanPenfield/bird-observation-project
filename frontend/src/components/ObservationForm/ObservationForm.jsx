@@ -6,7 +6,7 @@ function ObservationForm({handleSubmit, error, data}){
     const [species,setSpecies] = useState([]);
     
     const [formData, setFormData] = useState({
-        speciesId: data?.speciesId || -1,
+        speciesId: data?.speciesId || data?.species.id || -1,
         count: data?.count || 1,
         location: data?.location || "",
         date: data?.date || "",

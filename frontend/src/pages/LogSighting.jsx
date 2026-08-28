@@ -9,7 +9,6 @@ function LogSighting (){
     const navigate = useNavigate();
     
     // states
-    const [success,setSuccess] = useState(false);
     const [error,setError] = useState("");
 
     const handleSubmit = async (formData) => {
@@ -17,17 +16,12 @@ function LogSighting (){
 
         try {
             await createObservation(formData.speciesId, formData.count, formData.location, formData.date, formData.time, formData.notes);
-            setSuccess(true);
+            navigate('/mysightings')        
         } catch (error) {
             setError(error.message);
         }
     };
 
-    useEffect(()=>{
-        if (success){
-            navigate('/mysightings')
-        }
-    },[success])
 
 
     return(
