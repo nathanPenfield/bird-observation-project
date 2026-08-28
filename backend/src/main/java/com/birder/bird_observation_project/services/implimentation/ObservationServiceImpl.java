@@ -24,10 +24,9 @@ public class ObservationServiceImpl implements ObservationService{
     }
 
     @Override
-    public ObservationDto saveObservation(ObservationCreationDto observationCreationDto){
+    public void saveObservation(ObservationCreationDto observationCreationDto){
         Observation observation = observationMapper.toEntity(observationCreationDto);
         observation = observationRepository.save(observation);
-        return observationMapper.toDto(observation);
     }
 
     @Override

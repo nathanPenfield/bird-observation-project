@@ -37,8 +37,8 @@ public class ObservationController {
 
     @PostMapping()
     public ResponseEntity<ObservationDto> createObservation(@RequestBody ObservationCreationDto observationCreationDto){
-        ObservationDto saved = observationService.saveObservation(observationCreationDto);
-        return new ResponseEntity<>(saved, HttpStatus.CREATED);
+        observationService.saveObservation(observationCreationDto);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
@@ -47,10 +47,11 @@ public class ObservationController {
         return new ResponseEntity<>(observation, HttpStatus.OK);
     }
 
-    // @PutMapping("/{id}")
-    // public Observation updateObservation(){
-
-    // }
+    @PutMapping("/{id}")
+    public ResponseEntity<ObservationDto> updateObservation(@RequestBody ObservationCreationDto observationUpdateDto){
+        observationService.saveObservation(observationUpdateDto);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteObservation(@PathVariable Integer id){
