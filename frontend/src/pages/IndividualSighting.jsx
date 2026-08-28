@@ -41,8 +41,10 @@ function IndividualSighting(){
                 navigate("/404");
             }
         }
-        loadSighting();
-    },[id]);
+        if (!update){
+            loadSighting();
+        }
+    },[id, update]);
 
     return(
         <>
