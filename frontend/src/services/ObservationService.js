@@ -21,7 +21,13 @@ export async function getObservationById(id){
 }
 
 export async function createObservation(species_id, count, location, date, time, notes){
-    const response = await fetch("http://localhost:8080/api/observations", {
+    console.log("species_id",species_id,
+            "count",count,
+            "location",location,
+            "date",date,
+            "time",time,
+            "notes",notes );
+    const response = await fetch(API_URL, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
