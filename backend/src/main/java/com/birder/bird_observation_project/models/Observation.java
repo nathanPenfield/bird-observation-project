@@ -20,7 +20,10 @@ public class Observation {
     @JoinColumn(name = "species_id")
     private Species species;
     private int count;
-    private String location;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "location_id")
+    private Location location;
     private String date;
     private String time;
     private String notes;
@@ -29,7 +32,7 @@ public class Observation {
     public Observation(){}
 
     // allArgsConstructor
-    public Observation(Integer id, Species species, int count, String location, String date, String time, String notes){
+    public Observation(Integer id, Species species, int count, Location location, String date, String time, String notes){
         this.id = id;
         this.species = species;
         this.count =count;
@@ -49,7 +52,7 @@ public class Observation {
     public int getCount(){
         return this.count;
     }
-    public String getLocation(){
+    public Location getLocation(){
         return this.location;
     }
     public String getDate(){
@@ -72,7 +75,7 @@ public class Observation {
     public void setCount(int count){
         this.count = count;
     }
-    public void setLocation(String location){
+    public void setLocation(Location location){
         this.location = location;
     }
     public void setDate(String date){

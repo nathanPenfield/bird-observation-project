@@ -3,7 +3,7 @@ package com.birder.bird_observation_project.dtos;
 public class ObservationCreationDto {
     private Integer id;
     private int species_id;
-    private String location;
+    private long location_id;
     private int count;
     private String date;
     private String time;
@@ -13,11 +13,11 @@ public class ObservationCreationDto {
     public ObservationCreationDto(){}
     
     // allArgsConstructor
-    public ObservationCreationDto(Integer id, int species_id, int count, String location, String date, String time, String notes){
+    public ObservationCreationDto(Integer id, int species_id, int count, long location_id, String date, String time, String notes){
         this.id = id;
         this.species_id = species_id;
         this.count =count;
-        this.location = location;
+        this.location_id = location_id;
         this.date = date;
         this.time = time;
         this.notes = notes;
@@ -33,8 +33,8 @@ public class ObservationCreationDto {
     public int getCount(){
         return this.count;
     }
-    public String getLocation(){
-        return this.location;
+    public long getLocationId(){
+        return this.location_id;
     }
     public String getDate(){
         return this.date;
@@ -56,8 +56,8 @@ public class ObservationCreationDto {
     public void setCount(int count){
         this.count = count;
     }
-    public void setLocation(String location){
-        this.location = location;
+    public void setLocationId(long location_id){
+        this.location_id = location_id;
     }
     public void setDate(String date){
         this.date = date;
