@@ -20,13 +20,7 @@ export async function getObservationById(id){
     return response.json();
 }
 
-export async function createObservation(species_id, count, location, date, time, notes){
-    console.log("species_id",species_id,
-            "count",count,
-            "location",location,
-            "date",date,
-            "time",time,
-            "notes",notes );
+export async function createObservation(species_id, count, location_id, date, time, notes){
     const response = await fetch(API_URL, {
         method: "POST",
         headers: {
@@ -35,7 +29,7 @@ export async function createObservation(species_id, count, location, date, time,
         body: JSON.stringify({
             "species_id":species_id,
             "count":count,
-            "location":location,
+            "location_id":location_id,
             "date":date,
             "time":time,
             "notes":notes    
@@ -59,7 +53,7 @@ export async function deleteObservationById(id){
     return;
 }
 
-export async function updateObservation(id, species_id, count, location, date, time, notes){
+export async function updateObservation(id, species_id, count, location_id, date, time, notes){
     const response = await fetch(API_URL+`/${id}`, {
         method: "PUT",
         headers: {
@@ -69,7 +63,7 @@ export async function updateObservation(id, species_id, count, location, date, t
             "id":id,
             "species_id":species_id,
             "count":count,
-            "location":location,
+            "location_id":location_id,
             "date":date,
             "time":time,
             "notes":notes   

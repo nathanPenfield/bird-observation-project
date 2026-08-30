@@ -25,7 +25,7 @@ function IndividualSighting(){
     
     const handleUpdate = async (formData)=>{
         try{
-            await updateObservation(id, formData.speciesId, formData.count, formData.location, formData.date, formData.time, formData.notes);
+            await updateObservation(id, formData.speciesId, formData.count, formData.locationId, formData.date, formData.time, formData.notes);
             setUpdate(false);
         }catch{
             setError("Unable to update observation");
@@ -64,7 +64,7 @@ function IndividualSighting(){
                         <section className="sighting-facts" aria-label="Observation details">
                             <div className="fact">
                                 <span className="fact-label">Location</span>
-                                <strong>{sighting.location}</strong>
+                                <strong>{sighting.location.name}</strong>
                             </div>
                             <div className="fact">
                                 <span className="fact-label">Count</span>

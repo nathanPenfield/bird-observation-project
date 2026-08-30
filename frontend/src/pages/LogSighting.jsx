@@ -15,7 +15,7 @@ function LogSighting (){
         setError("");
 
         try {
-            await createObservation(formData.speciesId, formData.count, formData.location, formData.date, formData.time, formData.notes);
+            await createObservation(formData.speciesId, formData.count, formData.locationId, formData.date, formData.time, formData.notes);
             navigate('/mysightings')        
         } catch (error) {
             setError(error.message);

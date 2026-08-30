@@ -18,8 +18,9 @@ public class ObservationMapper {
     private SpeciesRepository speciesRepository;
     private LocationRepository locationRepository;
 
-    public ObservationMapper(SpeciesRepository speciesRepository){
+    public ObservationMapper(SpeciesRepository speciesRepository, LocationRepository locationRepository){
         this.speciesRepository = speciesRepository;
+        this.locationRepository = locationRepository;
     }
 
 

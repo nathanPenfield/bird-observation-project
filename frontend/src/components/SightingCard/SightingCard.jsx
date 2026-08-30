@@ -7,7 +7,7 @@ function SightingCard({sighting}){
             <Link to={`/mysightings/${sighting.id}`}>
                 <div>{sighting.species.name}</div>
                 <div>{sighting.date} {sighting.time}</div>
-                <div>{sighting.location}</div>
+                <div>{sighting.location.name}</div>
             </Link>
         </li>
     );  

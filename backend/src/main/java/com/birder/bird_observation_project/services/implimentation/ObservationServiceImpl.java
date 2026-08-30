@@ -9,6 +9,7 @@ import com.birder.bird_observation_project.dtos.ObservationDto;
 import com.birder.bird_observation_project.exceptions.ObservationNotFoundException;
 import com.birder.bird_observation_project.mappers.ObservationMapper;
 import com.birder.bird_observation_project.models.Observation;
+import com.birder.bird_observation_project.repositories.LocationRepository;
 import com.birder.bird_observation_project.repositories.ObservationRepository;
 import com.birder.bird_observation_project.repositories.SpeciesRepository;
 import com.birder.bird_observation_project.services.ObservationService;
@@ -18,9 +19,9 @@ public class ObservationServiceImpl implements ObservationService{
     private ObservationRepository observationRepository;
     private ObservationMapper observationMapper;
 
-    public ObservationServiceImpl(ObservationRepository observationRepository, SpeciesRepository speciesRepository){
+    public ObservationServiceImpl(ObservationRepository observationRepository, SpeciesRepository speciesRepository,LocationRepository locationRepository){
         this.observationRepository = observationRepository;  
-        this.observationMapper = new ObservationMapper(speciesRepository);
+        this.observationMapper = new ObservationMapper(speciesRepository,locationRepository);
     }
 
     @Override

@@ -1,14 +1,16 @@
 import { getSpecies } from "../../services/SpeciesService.js";
+import { getLocations } from "../../services/LocationService.js"
 import { useState, useEffect } from "react";
 import './ObservationForm.css'
 
 function ObservationForm({handleSubmit, error, data}){
     const [species,setSpecies] = useState([]);
+    const [locations,setLocations] = useState([]);
     
     const [formData, setFormData] = useState({
-        speciesId: data?.speciesId || data?.species.id || -1,
+        speciesId: data?.speciesId || data?.species?.id || -1,
         count: data?.count || 1,
-        location: data?.location || "",
+        locationId: data?.locationId || data?.location?.id || "",
         date: data?.date || "",
         time: data?.time || "",
         notes: data?.notes || ""
@@ -27,11 +29,16 @@ function ObservationForm({handleSubmit, error, data}){
 
     useEffect(()=>{
         async function loadSpecies() {
-                const data = await getSpecies();
-                setSpecies(data)
-            }
+            const data = await getSpecies();
+            setSpecies(data)
+        }
+        async function loadLocations() {
+            const data = await getLocations();
+            setLocations(data);
+        }
     
-            loadSpecies();
+        loadSpecies();
+        loadLocations();
     },[])
 
     return(
@@ -53,7 +60,14 @@ function ObservationForm({handleSubmit, error, data}){
             </div>
             <div className="form-field form-field-wide">
                 <label htmlFor="location">Location</label>
-                <input id="location" name="location" value={formData.location} onChange={handleChange}/>
+                <select id="location" name="locationId" value={formData.locationId} onChange={handleChange}>
+                    <option value={-1}>Select a location</option>
+                    {locations.map((locationOption) => (
+                        <option key={locationOption.id} value={locationOption.id}>
+                            {locationOption.name}
+                        </option>
+                    ))}
+                </select>
             </div>
             <div className="form-field">
                 <label htmlFor="date">Date</label>
