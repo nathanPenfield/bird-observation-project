@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Whitehouse Nature Center",
+        "latitude": 42.242501046724726,
+        "longitude": -84.73522764311583
+    },
+    {
+        "name": "Bennett Park",
+        "latitude": 42.54642596911561,
+        "longitude": -84.83416967437068
+    },
+    {
+        "name": "Brooks Nature Area",
+        "latitude": 42.23899339509599, 
+        "longitude": -84.93630598815943
+    },
+    {
+       "name": "Riverbend Nature Area",
+       "latitude": 42.5996021617925, 
+       "longitude": -84.59037061507605
+    },
+    {
+        "name": "Woldumar Nature Center",
+        "latitude": 42.692563414391564, 
+        "longitude": -84.6314941949055
+    },
+    {
+        "name": "Fenner Nature Center",
+        "latitude": 42.711980470953414, 
+        "longitude": -84.52165428499023
+    }
+]
