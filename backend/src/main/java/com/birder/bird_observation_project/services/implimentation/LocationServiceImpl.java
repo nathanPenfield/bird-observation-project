@@ -24,4 +24,11 @@ public class LocationServiceImpl implements LocationService{
         List<LocationDto> locationDtos = LocationMapper.listToDto(locations);
         return locationDtos;
     }
+
+    @Override
+    public LocationDto createLocation(LocationDto locationDto){
+        Location location = LocationMapper.toEntity(locationDto);
+        location = locationRepository.save(location);
+        return LocationMapper.toDto(location);
+    }
 }

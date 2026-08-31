@@ -8,6 +8,9 @@ import com.birder.bird_observation_project.models.Location;
 
 
 public class LocationMapper {
+    public static Location toEntity(LocationDto dto){
+        return new Location(dto.getId(), dto.getName(), dto.getLatitude(), dto.getLongitude());
+    }
     public static LocationDto toDto(Location location){
         return new LocationDto(location.getId(), location.getName(), location.getLatitude(), location.getLongitude());
     }

@@ -6,6 +6,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,5 +28,11 @@ public class LocationController {
     public ResponseEntity<List<LocationDto>> getLocations(){
         List<LocationDto> locations = locationService.getLocations();
         return new ResponseEntity<>(locations, HttpStatus.OK);
+    }
+
+    @PostMapping()
+    public ResponseEntity<LocationDto> createLocation(@RequestBody LocationDto locationDto){
+        LocationDto createdLocation = locationService.createLocation(locationDto);
+        return new ResponseEntity<>(createdLocation, HttpStatus.CREATED);
     }
 }
