@@ -9,3 +9,23 @@ export async function getLocations() {
 
     return response.json();
 }
+
+export async function createLocation(name,latitude,longitude) {
+    const response = await fetch(API_URL, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ 
+            "name":name ,
+            "latitude":latitude,
+            "longitude":longitude
+        })
+    });
+
+    if (!response.ok) {
+        throw new Error("Failed to create location");
+    }
+
+    return response.json();
+}
