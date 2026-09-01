@@ -6,10 +6,14 @@ import Home from './pages/Home.jsx'
 import IndividualSighting from './pages/IndividualSighting.jsx'
 import NotFoundPage from './pages/NotFoundPage.jsx'
 import LogSighting from './pages/LogSighting.jsx'
+import SignIn from './pages/SignIn.jsx'
+import SignUp from './pages/SignUp.jsx'
 import "./index.css"
 
 const router = createBrowserRouter([
   {'path':"/",'element':<Home/>},
+  {'path':"/signin",'element':<SignIn/>},
+  {'path':"/signup",'element':<SignUp/>},
   {'path':"/mysightings",'element':<MySightings/>},
   {'path':"/mysightings/:id",'element':<IndividualSighting/>},
   {'path':"/log",'element':<LogSighting/>},

@@ -11,6 +11,8 @@ function Navbar(){
                 <Link to="/mysightings">My Sightings</Link>
                 <Link to="/account">Profile</Link>
                 <Link to="/about">About</Link>
+                <Link to="/signin">Sign In</Link>
+                <Link to="/signup">Sign Up</Link>
             </div>
         </nav>
     );

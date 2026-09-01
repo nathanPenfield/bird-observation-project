@@ -1,0 +1,115 @@
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+    background: linear-gradient(145deg, #1e303d 0%, #294656 100%);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.auth-card {
+    width: min(100%, 440px);
+    background: rgba(14, 29, 37, 0.9);
+    border: 1px solid rgba(185, 200, 134, 0.35);
+    border-radius: 22px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+    padding: 2rem 1.5rem 1.5rem;
+    color: #f9f3eb;
+}
+
+.auth-header {
+    margin-bottom: 1.5rem;
+}
+
+.auth-eyebrow {
+    margin: 0 0 0.5rem;
+    color: #b9c886;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+
+.auth-header h1 {
+    margin: 0;
+    font-size: clamp(2rem, 5vw, 2.7rem);
+    font-family: Georgia, 'Times New Roman', serif;
+    font-weight: 400;
+    color: #f9f3eb;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.auth-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    font-size: 0.95rem;
+    color: #eef3ec;
+}
+
+.auth-field span {
+    font-weight: 600;
+}
+
+.auth-field input {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid rgba(249, 243, 235, 0.15);
+    border-radius: 12px;
+    background: rgba(249, 243, 235, 0.04);
+    color: #f9f3eb;
+    padding: 0.85rem 0.95rem;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.auth-field input::placeholder {
+    color: rgba(249, 243, 235, 0.48);
+}
+
+.auth-field input:focus {
+    border-color: rgba(185, 200, 134, 0.9);
+    box-shadow: 0 0 0 3px rgba(185, 200, 134, 0.2);
+}
+
+.auth-submit {
+    margin-top: 0.5rem;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #b9c886 0%, #8da76b 100%);
+    color: #1e303d;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0.9rem 1rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.auth-submit:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 22px rgba(185, 200, 134, 0.22);
+}
+
+.auth-switch {
+    margin: 1.25rem 0 0;
+    text-align: center;
+    color: rgba(249, 243, 235, 0.72);
+    font-size: 0.95rem;
+}
+
+.auth-switch a {
+    color: #b9c886;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.auth-switch a:hover {
+    text-decoration: underline;
+}
