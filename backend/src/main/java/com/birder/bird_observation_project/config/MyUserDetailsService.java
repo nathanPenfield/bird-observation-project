@@ -9,6 +9,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.birder.bird_observation_project.models.User;
+import com.birder.bird_observation_project.models.UserPrincipal;
 import com.birder.bird_observation_project.repositories.UserRepository;
 
 @Service 

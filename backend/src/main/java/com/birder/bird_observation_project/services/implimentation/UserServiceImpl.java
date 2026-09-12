@@ -10,9 +10,9 @@ import com.birder.bird_observation_project.dtos.UserAuthDto;
 import com.birder.bird_observation_project.dtos.UserCreationDto;
 import com.birder.bird_observation_project.exceptions.DuplicateUserException;
 import com.birder.bird_observation_project.config.JwtService;
-import com.birder.bird_observation_project.config.UserPrincipal;
 import com.birder.bird_observation_project.mappers.UserMapper;
 import com.birder.bird_observation_project.models.User;
+import com.birder.bird_observation_project.models.UserPrincipal;
 import com.birder.bird_observation_project.repositories.UserRepository;
 import com.birder.bird_observation_project.services.UserService;
 

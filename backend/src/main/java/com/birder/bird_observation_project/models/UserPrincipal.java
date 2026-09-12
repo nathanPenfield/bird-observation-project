@@ -1,4 +1,4 @@
-package com.birder.bird_observation_project.config;
+package com.birder.bird_observation_project.models;
 
 import java.util.Collection;
 
