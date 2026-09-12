@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.birder.bird_observation_project.dtos.UserAuthDto;
 import com.birder.bird_observation_project.dtos.UserCreationDto;
+import com.birder.bird_observation_project.dtos.AuthResponseDto;
 import com.birder.bird_observation_project.services.UserService;
 
 @RestController
@@ -21,9 +23,15 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PostMapping
+    @PostMapping("/create")
     public ResponseEntity<Void> createUser(@RequestBody UserCreationDto userCreationDto){
         userService.createUser(userCreationDto);
         return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+    
+    @PostMapping("/auth")
+    public ResponseEntity<AuthResponseDto> validateUser(@RequestBody UserAuthDto userAuthDto){
+        String token = userService.authenticateUser(userAuthDto);
+        return new ResponseEntity<>(new AuthResponseDto(token), HttpStatus.OK);
     }
 }

@@ -28,7 +28,8 @@ I built ChirpLog as both a personal project and a way to strengthen my full-stac
 
 ## How to run
 1. Clone repo
-2. Docker compose up (this creates the docker container with postgres)
-3. ./backend/mvnw spring-boot:run
-4. ./frontend npm run dev
-5. Go to localhost:5173
+2. Copy `.env.example` to `.env` in the project root and set `DB_PASSWORD` and `JWT_SECRET`
+3. Docker compose up (this creates the docker container with postgres)
+4. `./backend/mvnw spring-boot:run`
+5. `cd frontend && npm run dev`
+6. Go to localhost:5173
