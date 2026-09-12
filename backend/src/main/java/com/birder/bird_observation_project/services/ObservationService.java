@@ -4,9 +4,10 @@ import java.util.List;
 
 import com.birder.bird_observation_project.dtos.ObservationCreationDto;
 import com.birder.bird_observation_project.dtos.ObservationDto;
+import com.birder.bird_observation_project.models.UserPrincipal;
 
 public interface ObservationService {
-    void saveObservation(ObservationCreationDto observationCreationDto);
+    void saveObservation(ObservationCreationDto observationCreationDto, UserPrincipal user);
     List<ObservationDto> getObservations();
     ObservationDto getObservationById(Integer id);
     void deleteObservation(Integer id);

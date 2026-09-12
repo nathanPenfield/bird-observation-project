@@ -22,4 +22,9 @@ public class GlobalExceptionHandler {
     public ResponseEntity<String> handleSpeciesNotFound(SpeciesNotFoundException ex){
         return new ResponseEntity<>(ex.getMessage(),HttpStatus.NOT_FOUND);
     }
+
+    @ExceptionHandler(UserNotFoundException.class)
+    public ResponseEntity<String> handleUserNotFound(UserNotFoundException ex){
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+    }
 }

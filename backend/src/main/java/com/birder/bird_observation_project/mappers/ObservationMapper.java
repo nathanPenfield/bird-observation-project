@@ -7,20 +7,25 @@ import com.birder.bird_observation_project.dtos.ObservationCreationDto;
 import com.birder.bird_observation_project.dtos.ObservationDto;
 import com.birder.bird_observation_project.exceptions.LocationNotFoundException;
 import com.birder.bird_observation_project.exceptions.SpeciesNotFoundException;
+import com.birder.bird_observation_project.exceptions.UserNotFoundException;
 import com.birder.bird_observation_project.models.Location;
 import com.birder.bird_observation_project.models.Observation;
 import com.birder.bird_observation_project.models.Species;
+import com.birder.bird_observation_project.models.User;
 import com.birder.bird_observation_project.repositories.LocationRepository;
 import com.birder.bird_observation_project.repositories.SpeciesRepository;
+import com.birder.bird_observation_project.repositories.UserRepository;
 
 public class ObservationMapper {
 
+    private UserRepository userRepository;
     private SpeciesRepository speciesRepository;
     private LocationRepository locationRepository;
 
-    public ObservationMapper(SpeciesRepository speciesRepository, LocationRepository locationRepository){
+    public ObservationMapper(SpeciesRepository speciesRepository, LocationRepository locationRepository, UserRepository userRepository){
         this.speciesRepository = speciesRepository;
         this.locationRepository = locationRepository;
+        this.userRepository = userRepository;
     }
 
 
@@ -31,10 +36,11 @@ public class ObservationMapper {
     }
 
     // Map Observation Creation DTO to Observation Entity
-    public Observation toEntity(ObservationCreationDto dto){
+    public Observation toEntity(ObservationCreationDto dto, long user_id){
+        User user = userRepository.findById(user_id).orElseThrow(() -> new UserNotFoundException("Error creating observation: User not found"));
         Species species = speciesRepository.findById(dto.getSpeciesId()).orElseThrow(() -> new SpeciesNotFoundException(dto.getSpeciesId()));
         Location location = locationRepository.findById(dto.getLocationId()).orElseThrow(()-> new LocationNotFoundException(dto.getLocationId()));
-        Observation observation = new Observation(dto.getId(), species, dto.getCount(), location, dto.getDate(),dto.getTime(),dto.getNotes());
+        Observation observation = new Observation(dto.getId(), user, species, dto.getCount(), location, dto.getDate(),dto.getTime(),dto.getNotes());
         return observation;
     }
 

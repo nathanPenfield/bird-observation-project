@@ -4,12 +4,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.birder.bird_observation_project.dtos.ObservationCreationDto;
 import com.birder.bird_observation_project.dtos.ObservationDto;
+import com.birder.bird_observation_project.models.UserPrincipal;
 import com.birder.bird_observation_project.services.ObservationService;
 
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,8 +38,8 @@ public class ObservationController {
     }
 
     @PostMapping()
-    public ResponseEntity<ObservationDto> createObservation(@RequestBody ObservationCreationDto observationCreationDto){
-        observationService.saveObservation(observationCreationDto);
+    public ResponseEntity<ObservationDto> createObservation(@RequestBody ObservationCreationDto observationCreationDto, @AuthenticationPrincipal UserPrincipal user){
+        observationService.saveObservation(observationCreationDto,user);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
@@ -48,8 +50,8 @@ public class ObservationController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ObservationDto> updateObservation(@RequestBody ObservationCreationDto observationUpdateDto){
-        observationService.saveObservation(observationUpdateDto);
+    public ResponseEntity<ObservationDto> updateObservation(@RequestBody ObservationCreationDto observationUpdateDto, @AuthenticationPrincipal UserPrincipal user){
+        observationService.saveObservation(observationUpdateDto,user);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

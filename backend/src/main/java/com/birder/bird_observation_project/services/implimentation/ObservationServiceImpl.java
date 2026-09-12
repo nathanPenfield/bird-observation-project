@@ -9,9 +9,11 @@ import com.birder.bird_observation_project.dtos.ObservationDto;
 import com.birder.bird_observation_project.exceptions.ObservationNotFoundException;
 import com.birder.bird_observation_project.mappers.ObservationMapper;
 import com.birder.bird_observation_project.models.Observation;
+import com.birder.bird_observation_project.models.UserPrincipal;
 import com.birder.bird_observation_project.repositories.LocationRepository;
 import com.birder.bird_observation_project.repositories.ObservationRepository;
 import com.birder.bird_observation_project.repositories.SpeciesRepository;
+import com.birder.bird_observation_project.repositories.UserRepository;
 import com.birder.bird_observation_project.services.ObservationService;
 
 @Service
@@ -19,14 +21,14 @@ public class ObservationServiceImpl implements ObservationService{
     private ObservationRepository observationRepository;
     private ObservationMapper observationMapper;
 
-    public ObservationServiceImpl(ObservationRepository observationRepository, SpeciesRepository speciesRepository,LocationRepository locationRepository){
+    public ObservationServiceImpl(ObservationRepository observationRepository, SpeciesRepository speciesRepository,LocationRepository locationRepository,UserRepository userRepository){
         this.observationRepository = observationRepository;  
-        this.observationMapper = new ObservationMapper(speciesRepository,locationRepository);
+        this.observationMapper = new ObservationMapper(speciesRepository,locationRepository,userRepository);
     }
 
     @Override
-    public void saveObservation(ObservationCreationDto observationCreationDto){
-        Observation observation = observationMapper.toEntity(observationCreationDto);
+    public void saveObservation(ObservationCreationDto observationCreationDto, UserPrincipal user){
+        Observation observation = observationMapper.toEntity(observationCreationDto, user.getId());
         observation = observationRepository.save(observation);
     }
 
