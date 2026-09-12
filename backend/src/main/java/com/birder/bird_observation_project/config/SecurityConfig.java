@@ -1,7 +1,7 @@
 package com.birder.bird_observation_project.config;
 
-import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -14,15 +14,20 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 
-import com.birder.bird_observation_project.repositories.UserRepository;
 
 @Configuration
 @EnableWebSecurity 
 public class SecurityConfig { 
+
+    @Autowired 
+    private UserDetailsService userDetailsService;
+
+    @Autowired 
+    private JwtAuthFilter jwtAuthFilter;
 
     @Bean
     public PasswordEncoder passwordEncoder(){
@@ -38,23 +43,12 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 .requestMatchers("/api/user/create", "/api/user/auth").permitAll()
                 .anyRequest().authenticated())
-            //.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
+            .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
             .build();
     }
 
-    @Bean
-    public UserDetailsService userDetailsService(UserRepository userRepository){
-        return email -> userRepository.findByEmail(email)
-            .map(user -> new UserPrincipal(
-                user.getId(),
-                user.getEmail(),
-                user.getPasswordHash(),
-                List.of(() -> "ROLE_USER")))
-                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
-    }
-
     @Bean 
-    public AuthenticationProvider authenticationProvider(UserDetailsService userDetailsService, PasswordEncoder passwordEncoder){
+    public AuthenticationProvider authenticationProvider(PasswordEncoder passwordEncoder){
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider(userDetailsService);
         provider.setPasswordEncoder(passwordEncoder);
         return provider;

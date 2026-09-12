@@ -4,8 +4,10 @@ import java.nio.charset.StandardCharsets;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import javax.crypto.SecretKey;
 import io.jsonwebtoken.security.Keys;
@@ -30,5 +32,28 @@ public class JwtService {
                 .expiration(new Date(now.getTime() + expirationMs))
                 .signWith(signingKey)
                 .compact();
+    }
+
+    public String extractUsername(String token) {
+        return parseClaims(token).getSubject();
+    }
+
+    public boolean isTokenValid(String token, UserDetails userDetails) {     
+        try {
+            Claims claims = parseClaims(token);
+            String username = userDetails.getUsername();
+            return username.equals(claims.getSubject())
+                    && claims.getExpiration().after(new Date());
+        } catch (RuntimeException exception) {
+            return false;
+        }
+    }
+
+    private Claims parseClaims(String token) {
+        return Jwts.parser()
+                .verifyWith(signingKey)
+                .build()
+                .parseSignedClaims(token)
+                .getPayload();
     }
 }
