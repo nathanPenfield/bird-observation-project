@@ -32,8 +32,8 @@ public class ObservationController {
     }
     
     @GetMapping()
-    public ResponseEntity<List<ObservationDto>> getObservations(){
-        List<ObservationDto> observations = observationService.getObservations();
+    public ResponseEntity<List<ObservationDto>> getObservations(@AuthenticationPrincipal UserPrincipal user){
+        List<ObservationDto> observations = observationService.getObservations(user);
         return new ResponseEntity<>(observations, HttpStatus.OK);
     }
 
@@ -44,20 +44,20 @@ public class ObservationController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ObservationDto> getObservation(@PathVariable Integer id){
-        ObservationDto observation = observationService.getObservationById(id);
+    public ResponseEntity<ObservationDto> getObservation(@PathVariable Integer id, @AuthenticationPrincipal UserPrincipal user){
+        ObservationDto observation = observationService.getObservationById(id,user);
         return new ResponseEntity<>(observation, HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ObservationDto> updateObservation(@RequestBody ObservationCreationDto observationUpdateDto, @AuthenticationPrincipal UserPrincipal user){
-        observationService.saveObservation(observationUpdateDto,user);
+    public ResponseEntity<ObservationDto> updateObservation(@PathVariable Integer id, @RequestBody ObservationCreationDto observationUpdateDto, @AuthenticationPrincipal UserPrincipal user){    
+        observationService.updateObservation(id, observationUpdateDto,user);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteObservation(@PathVariable Integer id){
-        observationService.deleteObservation(id);
+    public ResponseEntity<Void> deleteObservation(@PathVariable Integer id, @AuthenticationPrincipal UserPrincipal user){
+        observationService.deleteObservation(id, user);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

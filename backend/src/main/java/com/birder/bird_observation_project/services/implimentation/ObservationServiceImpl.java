@@ -33,22 +33,40 @@ public class ObservationServiceImpl implements ObservationService{
     }
 
     @Override
-    public List<ObservationDto> getObservations(){
-        List<Observation> observations = observationRepository.findAll();
+    public List<ObservationDto> getObservations(UserPrincipal user){
+        List<Observation> observations = observationRepository.findByUserId(user.getId());
         List<ObservationDto> observationDtos = observationMapper.listToDto(observations);
         return observationDtos;
 
     }
 
     @Override
-    public ObservationDto getObservationById(Integer id){
+    public ObservationDto getObservationById(Integer id, UserPrincipal user){
         Observation observation = observationRepository.findById(id).orElseThrow(() -> new ObservationNotFoundException(id));
-        return observationMapper.toDto(observation);
+        if (observation.getUser().getId() == user.getId()){
+            return observationMapper.toDto(observation);
+        }else{
+            throw new ObservationNotFoundException(id);
+        }
     }
 
     @Override
-    public void deleteObservation(Integer id){
+    public void deleteObservation(Integer id, UserPrincipal user){
         Observation observation = observationRepository.findById(id).orElseThrow(() -> new ObservationNotFoundException(id));
-        observationRepository.delete(observation);
+        if (observation.getUser().getId() == user.getId()){
+            observationRepository.delete(observation);
+        }else{
+            throw new ObservationNotFoundException(id);
+        } 
+    }
+    @Override 
+    public void updateObservation(Integer id, ObservationCreationDto observationCreationDto, UserPrincipal user){
+        Observation observation = observationMapper.toEntity(observationCreationDto, user.getId());
+        if (observationRepository.existsById(id) && observation.getUser().getId() == user.getId()){
+            observation.setId(id);
+            observation = observationRepository.save(observation);
+        }else{
+            throw new ObservationNotFoundException(id);
+        }
     }
 }
