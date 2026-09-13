@@ -22,18 +22,17 @@ function SignUp() {
         }));
     };
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
+        if (formData.confirmPassword != formData.password){
+            setErrorMsg("Passwords don't match.")
+            return;
+        }
         try{
-            if (formData.confirmPassword == formData.password){
-                createUser(formData.name, formData.email, formData.password, formData.confirmPassword);
-                navigation("/signin");
-            } else{
-                setErrorMsg("Passwords don't match.")
-                return;
-            }
+            await createUser(formData.name, formData.email, formData.password);
+            navigation("/signin");
         } catch (error){
-            console.log(error);
+            setErrorMsg(error.message);
         }
     };
 

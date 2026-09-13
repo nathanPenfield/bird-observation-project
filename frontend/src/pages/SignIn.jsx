@@ -1,9 +1,12 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./AuthPage.css";
 import Navbar from "../components/Navbar/Navbar";
+import { authorizeUser } from "../services/UserService";
 
 function SignIn() {
+    const navigation = useNavigate();
+    const [errorMsg,setErrorMsg] = useState("");
     const [formData, setFormData] = useState({
         email: "",
         password: "",
@@ -17,9 +20,16 @@ function SignIn() {
         }));
     };
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        console.log("Sign in submitted", formData);
+        try{
+            await authorizeUser(formData.email,formData.password);
+            navigation("/mysightings");
+        }catch(error){
+            setErrorMsg(error.message);
+        }
+        
+    
     };
 
     return (
@@ -56,7 +66,7 @@ function SignIn() {
                                 required
                             />
                         </label>
-
+                        {errorMsg && <p>{errorMsg}</p> }
                         <button className="auth-submit" type="submit">
                             Sign in
                         </button>
