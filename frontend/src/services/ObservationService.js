@@ -1,7 +1,14 @@
 const API_URL = "http://localhost:8080/api/observations";
 
 export async function getObservations() {
-    const response = await fetch(API_URL);
+    const TOKEN = localStorage.getItem("jwtToken");
+    const response = await fetch(API_URL,{
+        method: "GET",
+        headers: {
+            "Authorization":`Bearer ${TOKEN}`,
+            
+        }
+    });
 
     if (!response.ok) {
         throw new Error("Failed to fetch observations");
@@ -11,7 +18,14 @@ export async function getObservations() {
 }
 
 export async function getObservationById(id){
-    const response = await fetch(API_URL+`/${id}`);
+    const TOKEN = localStorage.getItem("jwtToken");
+    const response = await fetch(API_URL+`/${id}`,{
+        method: "GET",
+        headers: {
+            "Authorization":`Bearer ${TOKEN}`,
+            
+        }
+    });
 
     if (!response.ok){
         throw new Error("Failed to fetch observation with id: "+id);
@@ -21,9 +35,11 @@ export async function getObservationById(id){
 }
 
 export async function createObservation(species_id, count, location_id, date, time, notes){
+    const TOKEN = localStorage.getItem("jwtToken");
     const response = await fetch(API_URL, {
         method: "POST",
         headers: {
+            "Authorization":`Bearer ${TOKEN}`,
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
@@ -44,7 +60,13 @@ export async function createObservation(species_id, count, location_id, date, ti
 }
 
 export async function deleteObservationById(id){
-    const response = await fetch(API_URL+`/${id}`,{method:"DELETE"});
+    const TOKEN = localStorage.getItem("jwtToken");
+    const response = await fetch(API_URL+`/${id}`,{
+        method:"DELETE",
+        headers: {
+            "Authorization":`Bearer ${TOKEN}`,
+        }
+    });
 
     if (!response.ok){
         throw new Error(`Failed to delete observation with id: ${id}`);
@@ -54,9 +76,11 @@ export async function deleteObservationById(id){
 }
 
 export async function updateObservation(id, species_id, count, location_id, date, time, notes){
+    const TOKEN = localStorage.getItem("jwtToken");
     const response = await fetch(API_URL+`/${id}`, {
         method: "PUT",
         headers: {
+            "Authorization":`Bearer ${TOKEN}`,
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
