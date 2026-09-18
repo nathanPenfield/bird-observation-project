@@ -8,6 +8,8 @@ import NotFoundPage from './pages/NotFoundPage.jsx'
 import LogSighting from './pages/LogSighting.jsx'
 import SignIn from './pages/SignIn.jsx'
 import SignUp from './pages/SignUp.jsx'
+import Profile from './pages/Profile.jsx'
+import About from './pages/About.jsx'
 import { AuthProvider } from './context/AuthContext.jsx'
 import ProtectedRoute from './components/ProtectedRoute.jsx'
 import "./index.css"
@@ -16,12 +18,14 @@ const router = createBrowserRouter([
   {'path':"/",'element':<Home/>},
   {'path':"/signin",'element':<SignIn/>},
   {'path':"/signup",'element':<SignUp/>},
+  {'path':"/about",'element':<About/>},
   {
     'element':<ProtectedRoute/>,
     'children':[
       {'path':"/mysightings",'element':<MySightings/>},
       {'path':"/mysightings/:id",'element':<IndividualSighting/>},
       {'path':"/log",'element':<LogSighting/>},
+      {'path':"/account",'element':<Profile/>},
     ],
   },
   {'path':"*",'element':<NotFoundPage/>}

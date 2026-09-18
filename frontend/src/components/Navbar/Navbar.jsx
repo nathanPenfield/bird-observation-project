@@ -19,9 +19,13 @@ function Navbar(){
                 {isAuthorized && <span className="welcome-message">Welcome {user.name}</span>}
             </div>
             <div className="nav-container">
-                <Link to="/log">Log</Link>
-                <Link to="/mysightings">My Sightings</Link>
-                <Link to="/account">Profile</Link>
+                {isAuthorized && (
+                    <>
+                        <Link to="/log">Log</Link>
+                        <Link to="/mysightings">My Sightings</Link>
+                        <Link to="/account">Profile</Link>
+                    </>
+                )}
                 <Link to="/about">About</Link>
                 {isAuthorized ? <button type="button" onClick={handleSignOut}>Sign Out</button> : <Link to="/signin">Sign In</Link>}
                 {!isAuthorized && <Link to="/signup">Sign Up</Link>}
