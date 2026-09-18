@@ -38,7 +38,8 @@ export async function authorizeUser(email, password){
         throw new Error(message || "Invalid Credentials");
     }
     
-    const jsn = await response.json()
-    localStorage.setItem("jwtToken",jsn.token);
-    return response;
+    const user = await response.json();
+    localStorage.setItem("jwtToken", user.token);
+    localStorage.setItem("authUser", JSON.stringify({ name: user.name }));
+    return user;
 }

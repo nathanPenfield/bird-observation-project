@@ -23,6 +23,15 @@
 .navbar img:hover{
     transform:rotate(-4deg) scale(1.04);
 }
+.navbar-brand{
+    display:flex;
+    align-items:center;
+    gap:0.75rem;
+}
+.welcome-message{
+    color:#1e303dff;
+    white-space:nowrap;
+}
 .navbar .nav-container{
     display:flex;
     align-items:center;
@@ -47,6 +56,23 @@
     background-color:#798e44ff;
     border-color:#798e44ff;
 }
+.navbar .nav-container button{
+    min-height:44px;
+    box-sizing:border-box;
+    color:#1e303dff;
+    background-color:transparent;
+    font:inherit;
+    padding:0 0.9rem;
+    border:1px solid transparent;
+    border-radius:4px;
+    cursor:pointer;
+    transition:background-color 180ms ease, border-color 180ms ease, color 180ms ease;
+}
+.navbar .nav-container button:hover{
+    color:#f9f3ebff;
+    background-color:#798e44ff;
+    border-color:#798e44ff;
+}
 
 @media (max-width: 560px){
     .navbar{
@@ -64,6 +90,11 @@
         gap:0.15rem;
     }
     .navbar .nav-container a{
+        min-height:32px;
+        padding:0 0.45rem;
+        font-size:15px;
+    }
+    .navbar .nav-container button{
         min-height:32px;
         padding:0 0.45rem;
         font-size:15px;

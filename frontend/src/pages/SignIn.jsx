@@ -3,9 +3,11 @@ import { Link, useNavigate } from "react-router-dom";
 import "./AuthPage.css";
 import Navbar from "../components/Navbar/Navbar";
 import { authorizeUser } from "../services/UserService";
+import { useAuth } from "../context/AuthContext.jsx";
 
 function SignIn() {
     const navigation = useNavigate();
+    const { setAuthenticatedUser } = useAuth();
     const [errorMsg,setErrorMsg] = useState("");
     const [formData, setFormData] = useState({
         email: "",
@@ -23,7 +25,8 @@ function SignIn() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try{
-            await authorizeUser(formData.email,formData.password);
+            const user = await authorizeUser(formData.email,formData.password);
+            setAuthenticatedUser(user);
             navigation("/mysightings");
         }catch(error){
             setErrorMsg(error.message);

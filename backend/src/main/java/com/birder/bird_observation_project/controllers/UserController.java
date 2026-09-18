@@ -31,7 +31,7 @@ public class UserController {
     
     @PostMapping("/auth")
     public ResponseEntity<AuthResponseDto> validateUser(@RequestBody UserAuthDto userAuthDto){
-        String token = userService.authenticateUser(userAuthDto);
-        return new ResponseEntity<>(new AuthResponseDto(token), HttpStatus.OK);
+        AuthResponseDto authResponse = userService.authenticateUser(userAuthDto);
+        return new ResponseEntity<>(authResponse, HttpStatus.OK);
     }
 }

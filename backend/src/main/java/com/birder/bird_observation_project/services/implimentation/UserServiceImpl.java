@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.birder.bird_observation_project.dtos.UserAuthDto;
 import com.birder.bird_observation_project.dtos.UserCreationDto;
+import com.birder.bird_observation_project.dtos.AuthResponseDto;
 import com.birder.bird_observation_project.exceptions.DuplicateUserException;
 import com.birder.bird_observation_project.config.JwtService;
 import com.birder.bird_observation_project.mappers.UserMapper;
@@ -42,9 +43,10 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public String authenticateUser(UserAuthDto userAuthDto){ 
+    public AuthResponseDto authenticateUser(UserAuthDto userAuthDto){ 
         Authentication auth = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(userAuthDto.getEmail(), userAuthDto.getPassword()));
         UserPrincipal user = (UserPrincipal) auth.getPrincipal();
-        return jwtService.generateToken(user);
+        User userEntity = userRepository.findByEmail(user.getUsername()).orElseThrow();
+        return new AuthResponseDto(jwtService.generateToken(user), userEntity.getName());
     }
 }
