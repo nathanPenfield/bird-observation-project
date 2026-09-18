@@ -9,15 +9,21 @@ import LogSighting from './pages/LogSighting.jsx'
 import SignIn from './pages/SignIn.jsx'
 import SignUp from './pages/SignUp.jsx'
 import { AuthProvider } from './context/AuthContext.jsx'
+import ProtectedRoute from './components/ProtectedRoute.jsx'
 import "./index.css"
 
 const router = createBrowserRouter([
   {'path':"/",'element':<Home/>},
   {'path':"/signin",'element':<SignIn/>},
   {'path':"/signup",'element':<SignUp/>},
-  {'path':"/mysightings",'element':<MySightings/>},
-  {'path':"/mysightings/:id",'element':<IndividualSighting/>},
-  {'path':"/log",'element':<LogSighting/>},
+  {
+    'element':<ProtectedRoute/>,
+    'children':[
+      {'path':"/mysightings",'element':<MySightings/>},
+      {'path':"/mysightings/:id",'element':<IndividualSighting/>},
+      {'path':"/log",'element':<LogSighting/>},
+    ],
+  },
   {'path':"*",'element':<NotFoundPage/>}
 ]);
 
