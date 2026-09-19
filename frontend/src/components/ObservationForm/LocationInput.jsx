@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getLocations } from "../../services/LocationService";
+import AddLocationForm from "./AddLocationForm.jsx";
 import "./LocationInput.css"
 
 
@@ -9,6 +10,7 @@ function LocationInput({defaultLocation, setFormData}){
     const [locationInput,setLocationInput] = useState(defaultLocation || "");
     const [addLocationError,setAddLocationError] = useState("");
     const [showAddLocation,setShowAddLocation] = useState(false);
+    const [showAddLocationForm, setShowAddLocationForm] = useState(false);
     const [hideOptions, setHideOptions] = useState(false);
 
     // locations matching search term
@@ -40,9 +42,15 @@ function LocationInput({defaultLocation, setFormData}){
     }
 
     // adding location
-    const handleAddLocation = async () => {        
-        setAddLocationError("The ability to add locations does not exist yet.");
-        return;
+    const handleAddLocation = () => {
+        setAddLocationError("");
+        setShowAddLocationForm(true);
+    }
+
+    const handleLocationCreated = (location) => {
+        setLocations((currentLocations) => [...currentLocations, location]);
+        handleLocationSelect(location);
+        setShowAddLocationForm(false);
     }
 
     // load locations
@@ -87,10 +95,17 @@ function LocationInput({defaultLocation, setFormData}){
                         ))}
                     </div>
                 )}
-                {locationInput.trim() && showAddLocation && (
+                {!showAddLocationForm && (
                     <button type="button" className="add-location-button" onClick={handleAddLocation}>
                         Add location
                     </button>
+                )}
+                {showAddLocationForm && (
+                    <AddLocationForm
+                        initialName={locationInput}
+                        onCreated={handleLocationCreated}
+                        onCancel={() => setShowAddLocationForm(false)}
+                    />
                 )}
                 {addLocationError && <p className="form-error">{addLocationError}</p>}
             </div>
