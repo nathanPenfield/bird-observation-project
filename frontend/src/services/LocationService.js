@@ -1,12 +1,9 @@
 const API_URL = "http://localhost:8080/api/locations";
+import { authenticatedFetch } from "./ApiClient.js";
 
 export async function getLocations() {
-    const TOKEN = localStorage.getItem("jwtToken");
-    const response = await fetch(API_URL,{
+    const response = await authenticatedFetch(API_URL,{
         method:"GET",
-        headers:{
-            "Authorization":`Bearer ${TOKEN}`
-        }
     });
 
     if (!response.ok) {
@@ -17,11 +14,9 @@ export async function getLocations() {
 }
 
 export async function createLocation(name,latitude,longitude) {
-    const TOKEN = localStorage.getItem("jwtToken");
-    const response = await fetch(API_URL, {
+    const response = await authenticatedFetch(API_URL, {
         method: "POST",
         headers: {
-            "Authorization":`Bearer ${TOKEN}`,
             "Content-Type": "application/json"
         },
         body: JSON.stringify({ 

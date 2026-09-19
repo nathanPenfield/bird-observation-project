@@ -1,4 +1,5 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
+import { AUTH_EXPIRED_EVENT } from "../services/ApiClient.js";
 
 const AuthContext = createContext(null);
 
@@ -29,6 +30,18 @@ export function AuthProvider({ children }) {
         localStorage.removeItem("authUser");
         setUser(null);
     };
+
+    useEffect(() => {
+        const handleAuthExpired = () => {
+            signOut();
+            if (window.location.pathname !== "/signin") {
+                window.location.assign("/signin");
+            }
+        };
+
+        window.addEventListener(AUTH_EXPIRED_EVENT, handleAuthExpired);
+        return () => window.removeEventListener(AUTH_EXPIRED_EVENT, handleAuthExpired);
+    }, []);
 
     return (
         <AuthContext.Provider

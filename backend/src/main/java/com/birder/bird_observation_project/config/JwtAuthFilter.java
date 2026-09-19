@@ -15,6 +15,8 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
+import io.jsonwebtoken.JwtException;
+
 @Component
 public class JwtAuthFilter extends OncePerRequestFilter {
     private final JwtService jwtService;
@@ -34,17 +36,25 @@ public class JwtAuthFilter extends OncePerRequestFilter {
 
         if (authHeader != null && authHeader.startsWith("Bearer ")) {
             token = authHeader.substring(7);
-            username = jwtService.extractUsername(token); 
+            try {
+                username = jwtService.extractUsername(token);
+            } catch (JwtException | IllegalArgumentException exception) {
+                response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Invalid or expired token");
+                return;
+            }
         }
 
         if(username!=null && SecurityContextHolder.getContext().getAuthentication() == null){
             UserDetails user = userDetailsService.loadUserByUsername(username);
             
-            if(jwtService.isTokenValid(token,user)){
-                UsernamePasswordAuthenticationToken token2 = new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
-                token2.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-                SecurityContextHolder.getContext().setAuthentication(token2);
+            if(!jwtService.isTokenValid(token,user)){
+                response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Invalid or expired token");
+                return;
             }
+
+            UsernamePasswordAuthenticationToken token2 = new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
+            token2.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+            SecurityContextHolder.getContext().setAuthentication(token2);
         }
     
         filterChain.doFilter(request, response);

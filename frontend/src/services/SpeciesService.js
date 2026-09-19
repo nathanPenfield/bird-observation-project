@@ -1,12 +1,9 @@
 const API_URL = "http://localhost:8080/api/species";
+import { authenticatedFetch } from "./ApiClient.js";
 
 export async function getSpecies() {
-    const TOKEN = localStorage.getItem("jwtToken");
-    const response = await fetch(API_URL,{
+    const response = await authenticatedFetch(API_URL,{
         method: "GET",
-        headers: {
-            "Authorization":`Bearer ${TOKEN}`,
-        }
     });
 
     if (!response.ok) {

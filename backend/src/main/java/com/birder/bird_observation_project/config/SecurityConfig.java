@@ -1,6 +1,8 @@
 package com.birder.bird_observation_project.config;
 
 
+import jakarta.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -39,6 +41,8 @@ public class SecurityConfig {
         return http
             .csrf(csrf -> csrf.disable())
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+            .exceptionHandling(exception -> exception.authenticationEntryPoint((request, response, authException) ->
+                response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Authentication required")))
             .authorizeHttpRequests(authorize -> authorize
                 .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 .requestMatchers("/api/user/create", "/api/user/auth").permitAll()
