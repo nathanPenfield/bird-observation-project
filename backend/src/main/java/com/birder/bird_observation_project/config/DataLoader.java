@@ -10,6 +10,7 @@ import org.springframework.core.io.ClassPathResource;
 
 import com.birder.bird_observation_project.models.Location;
 import com.birder.bird_observation_project.models.Species;
+import com.birder.bird_observation_project.models.Visibility;
 import com.birder.bird_observation_project.repositories.LocationRepository;
 import com.birder.bird_observation_project.repositories.SpeciesRepository;
 
@@ -45,6 +46,7 @@ public class DataLoader {
             // load seed location data into db
             try (InputStream input = new ClassPathResource("test-locations.json").getInputStream()){
                 List<Location> locations = objectMapper.readValue(input, new TypeReference<List<Location>>() {});
+                locations.forEach(location -> location.setVisibility(Visibility.PUBLIC));
                 repository.saveAll(locations);
             }
         };

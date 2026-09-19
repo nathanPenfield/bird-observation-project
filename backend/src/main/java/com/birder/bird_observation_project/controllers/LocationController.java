@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.birder.bird_observation_project.dtos.LocationDto;
+import com.birder.bird_observation_project.models.UserPrincipal;
 import com.birder.bird_observation_project.services.LocationService;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 
 @RestController
 @RequestMapping("/api/locations")
@@ -31,8 +33,8 @@ public class LocationController {
     }
 
     @PostMapping()
-    public ResponseEntity<LocationDto> createLocation(@RequestBody LocationDto locationDto){
-        LocationDto createdLocation = locationService.createLocation(locationDto);
+    public ResponseEntity<LocationDto> createLocation(@RequestBody LocationDto locationDto, @AuthenticationPrincipal UserPrincipal user){
+        LocationDto createdLocation = locationService.createLocation(locationDto, user);
         return new ResponseEntity<>(createdLocation, HttpStatus.CREATED);
     }
 }

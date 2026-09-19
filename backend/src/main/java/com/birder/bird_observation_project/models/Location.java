@@ -1,9 +1,13 @@
 package com.birder.bird_observation_project.models;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -16,6 +20,13 @@ public class Location {
     private String name;
     private double latitude;
     private double longitude; 
+
+    @Enumerated(EnumType.STRING)
+    private Visibility visibility = Visibility.PUBLIC;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
     // noArgsConstructor
     public Location(){}
@@ -41,6 +52,12 @@ public class Location {
     public double getLongitude(){
         return this.longitude;
     }
+    public Visibility getVisibility(){
+        return this.visibility;
+    }
+    public User getUser(){
+        return this.user;
+    }
 
     // setter methods
     public void setId(Long id){
@@ -54,5 +71,11 @@ public class Location {
     }
     public void setLongitude(double longitude){
         this.longitude = longitude;
+    }
+    public void setVisibility(Visibility visibility){
+        this.visibility = visibility;
+    }
+    public void setUser(User user){
+        this.user = user;
     }
 }
