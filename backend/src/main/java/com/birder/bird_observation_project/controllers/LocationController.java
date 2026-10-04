@@ -28,8 +28,8 @@ public class LocationController {
     }
 
     @GetMapping()
-    public ResponseEntity<List<LocationDto>> getLocations(){
-        List<LocationDto> locations = locationService.getLocations();
+    public ResponseEntity<List<LocationDto>> getLocations(@AuthenticationPrincipal UserPrincipal user){
+        List<LocationDto> locations = locationService.getLocations(user);
         return new ResponseEntity<>(locations, HttpStatus.OK);
     }
 

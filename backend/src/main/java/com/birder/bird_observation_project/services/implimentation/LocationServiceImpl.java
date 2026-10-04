@@ -8,6 +8,7 @@ import com.birder.bird_observation_project.dtos.LocationDto;
 import com.birder.bird_observation_project.mappers.LocationMapper;
 import com.birder.bird_observation_project.models.Location;
 import com.birder.bird_observation_project.models.UserPrincipal;
+import com.birder.bird_observation_project.models.Visibility;
 import com.birder.bird_observation_project.repositories.LocationRepository;
 import com.birder.bird_observation_project.repositories.UserRepository;
 import com.birder.bird_observation_project.services.LocationService;
@@ -23,8 +24,10 @@ public class LocationServiceImpl implements LocationService{
     }
     
     @Override
-    public List<LocationDto> getLocations(){
-        List<Location> locations = locationRepository.findAll();
+    public List<LocationDto> getLocations(UserPrincipal user){
+        List<Location> locations = locationRepository.findAll().stream()
+                .filter(location -> location.getVisibility() == Visibility.PUBLIC || (location.getUser() != null && location.getUser().getId().equals(user.getId())))
+                .toList();
         List<LocationDto> locationDtos = LocationMapper.listToDto(locations);
         return locationDtos;
     }

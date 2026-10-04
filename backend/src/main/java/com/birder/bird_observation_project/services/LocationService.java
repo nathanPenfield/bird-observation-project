@@ -6,6 +6,6 @@ import com.birder.bird_observation_project.dtos.LocationDto;
 import com.birder.bird_observation_project.models.UserPrincipal;
 
 public interface LocationService {
-    List<LocationDto> getLocations();
+    List<LocationDto> getLocations(UserPrincipal user);
     LocationDto createLocation(LocationDto locationDto, UserPrincipal user);
 } 
