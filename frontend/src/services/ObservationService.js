@@ -1,6 +1,17 @@
 const API_URL = "http://localhost:8080/api/observations";
 import { authenticatedFetch } from "./ApiClient.js";
 
+async function getObservationErrorMessage(response, fallback) {
+    if (response.status === 400) {
+        const details = (await response.text()).trim();
+        if (details) {
+            return details.split(";")[0].replace(/^[^:]+:\s*/, "").trim();
+        }
+    }
+
+    return fallback;
+}
+
 export async function getObservations() {
     const response = await authenticatedFetch(API_URL,{
         method: "GET",
@@ -42,7 +53,7 @@ export async function createObservation(species_id, count, location_id, date, ti
     });
 
     if (!response.ok) {
-        throw new Error("Failed to create observation");
+        throw new Error(await getObservationErrorMessage(response, "Failed to create observation"));
     }
 
     return;
@@ -78,7 +89,7 @@ export async function updateObservation(id, species_id, count, location_id, date
     });
 
     if (!response.ok) {
-        throw new Error("Failed to update observation");
+        throw new Error(await getObservationErrorMessage(response, "Failed to update observation"));
     }
 
     return;

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { getLocations } from "../../services/LocationService";
 import AddLocationForm from "./AddLocationForm.jsx";
 import "./LocationInput.css"
@@ -12,6 +12,7 @@ function LocationInput({defaultLocation, setFormData}){
     const [showAddLocation,setShowAddLocation] = useState(false);
     const [showAddLocationForm, setShowAddLocationForm] = useState(false);
     const [hideOptions, setHideOptions] = useState(false);
+    const locationInputRef = useRef(null);
 
     // locations matching search term
     const matchingLocations = locations.filter((locationOption) => {
@@ -27,6 +28,11 @@ function LocationInput({defaultLocation, setFormData}){
         setLocationInput(nextLocationName);
         setAddLocationError("");
         setHideOptions(false);
+        e.target.setCustomValidity("Select a location.");
+        setFormData((currentFormData) => ({
+            ...currentFormData,
+            locationId: "",
+        }));
     }
 
     // update form data when location selected
@@ -34,6 +40,7 @@ function LocationInput({defaultLocation, setFormData}){
         setHideOptions(true);
         setLocationInput(locationOption.name);
         setAddLocationError("");
+        locationInputRef.current?.setCustomValidity("");
         setFormData((currentFormData) => ({
             ...currentFormData,
             locationId: locationOption.id,
@@ -71,12 +78,14 @@ function LocationInput({defaultLocation, setFormData}){
                 <label htmlFor="location">Location</label>
                 <input
                     id="location"
+                    ref={locationInputRef}
                     name="locationName"
                     type="text"
                     value={locationInput}
                     onChange={handleLocationInputChange}
                     placeholder="Type a location name"
                     autoComplete="off"
+                    required
                 />
                 {locationInput.trim() && !hideOptions && matchingLocations.length > 0 && (
                     <div id="location-options-container" className="location-suggestions" role="listbox">

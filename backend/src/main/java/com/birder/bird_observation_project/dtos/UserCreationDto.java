@@ -1,8 +1,17 @@
 package com.birder.bird_observation_project.dtos;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Email;
+
 public class UserCreationDto {
+    @NotBlank(message = "Name is required")
+    @Pattern(regexp = "^[\\p{L}\\p{M}][\\p{L}\\p{M} .'-]*$", message = "Name may contain letters, spaces, periods, apostrophes, and hyphens")
     private String name;
+    @NotBlank(message = "Email is required")
+    @Email(message = "Email must be valid")
     private String email;
+    @NotBlank(message = "Password is required")
     private String password; 
 
     // noArgsConstructor

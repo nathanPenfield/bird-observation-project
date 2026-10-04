@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/observations")
@@ -38,7 +39,7 @@ public class ObservationController {
     }
 
     @PostMapping()
-    public ResponseEntity<ObservationDto> createObservation(@RequestBody ObservationCreationDto observationCreationDto, @AuthenticationPrincipal UserPrincipal user){
+    public ResponseEntity<ObservationDto> createObservation(@Valid @RequestBody ObservationCreationDto observationCreationDto, @AuthenticationPrincipal UserPrincipal user){
         observationService.saveObservation(observationCreationDto,user);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
@@ -50,7 +51,7 @@ public class ObservationController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ObservationDto> updateObservation(@PathVariable Integer id, @RequestBody ObservationCreationDto observationUpdateDto, @AuthenticationPrincipal UserPrincipal user){    
+    public ResponseEntity<ObservationDto> updateObservation(@PathVariable Integer id, @Valid @RequestBody ObservationCreationDto observationUpdateDto, @AuthenticationPrincipal UserPrincipal user){    
         observationService.updateObservation(id, observationUpdateDto,user);
         return new ResponseEntity<>(HttpStatus.OK);
     }
